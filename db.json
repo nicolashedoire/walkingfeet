@@ -1,0 +1,10 @@
+{
+    "hikings": [
+        {
+            "id": 1,
+            "title": "Randonnée",
+            "image": "/images/header2.jpg",
+            "description": "Une superbe randonnée de 18km"
+        }
+    ]
+}
