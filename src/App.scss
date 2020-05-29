@@ -31,15 +31,27 @@
 }
 
 h2, h3, h4, h5, h6 {
-    text-align: center;
-    text-transform: uppercase;
+    text-align: Left;
+    font-weight: bold;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 1.3em;
-    color: rgb(50, 50, 50);
+    color: #485460;
+    margin: 25px 50px 5px 50px;
 }
 
 .informations {
-    p {
         text-align: justify;
-        margin: 25px 50px;
-    }
+        margin: 5px 50px;
+        font-family: 'Noto Sans JP', sans-serif;
+}
+.walkingfeet {
+    color: #182C61;
+    font-weight: bold;
+
+}
+.intro {
+    text-align: center;
+    margin: 50px 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 20px;
 }
