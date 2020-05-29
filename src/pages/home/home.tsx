@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from "../../components/Navbar";
+import "./styles.scss"
 
 export default function Home() {
 
@@ -8,17 +9,18 @@ export default function Home() {
       <header className="header">
         <Navbar />
         <h1>Walking feet</h1>
-        <div>
+        <p className="intro">
+          <span className="walkingfeet">Walking feet</span> est une plateforme communautaire gratuite vous proposant
+          des balades et randonnées partout dans le monde. Il n’est pas toujours évident de trouver des informations sur le net. Quoi de mieux qu’un
+          site qui les regroupe pour vous!
+        </p>
+        <div className="search-container">
           <input placeholder="Rechercher une randonnée" />
+         
         </div>
       </header>
       <div>
-        <p className="intro">
-          <span className="walkingfeet">Walking feet</span> est une plateforme communautaire gratuite <br></br>vous proposant
-          des balades et randonnées partout dans le monde. 
-          <br></br>Il n’est pas toujours évident de trouver des informations sur le net. <br></br>Quoi de mieux qu’un
-          site qui les regroupe pour vous!
-        </p>
+        
         <h2>Découverte</h2>
         <p className="informations">
           Découvrez des lieux agréables ou des endroits insolites, un peu
