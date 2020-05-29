@@ -52,29 +52,32 @@
     width: 700px;
 }
 
-.search-container {
+.searchContainer {
     display:flex;
     justify-content:center;
     align-items: center;
     flex-direction: column;
 }
 
-h2, h3, h4, h5, h6 {
+.title {
     text-align: Left;
     font-weight: bold;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 1.3em;
     color: #485460;
-    margin: 25px 50px 5px 50px;
+    margin: 35px 50px 5px 50px;
 }
 
 .informations {
         text-align: justify;
-        margin: 5px 50px;
+        margin: 10px 50px;
         font-family: 'Noto Sans JP', sans-serif;
+        width : 50%;
 }
 .walkingfeet {
     color:white;
     font-weight: bold;
-
+}
+.section{
+    
 }
