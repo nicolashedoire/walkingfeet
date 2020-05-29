@@ -32,7 +32,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "installation": "npm install"
+    "installation": "npm install",
+    "start:fakeapi": "json-server --watch db.json --id _id"
   },
   "eslintConfig": {
     "extends": "react-app"

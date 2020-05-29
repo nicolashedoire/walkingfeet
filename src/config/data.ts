@@ -1,3 +1,25 @@
+export const hikings = [
+  {
+      "_id": 1,
+      "title": "Randonnée",
+      "image": "/images/header2.jpg",
+      "description": "Une superbe randonnée de 18km"
+  },
+  {
+      "_id": 2,
+      "title": "Randonnée",
+      "image": "/images/header2.jpg",
+      "description": "Une superbe randonnée de 18km"
+  },
+  {
+      "_id": 3,
+      "title": "Randonnée",
+      "image": "/images/header2.jpg",
+      "description": "Une superbe randonnée de 18km"
+  }
+];
+
+
 export const countries = {
   AF: 'Afghanistan',
   ZA: 'Afrique du Sud',
