@@ -6,7 +6,12 @@
     font-size: 14px;
     ul > li {
         color: rgb(250, 250,250);
+        font-size: 1em;
         display: inline-block;
-        margin: 10px ;
+        margin: 5px;
+        a {
+            color: rgb(250, 250,250);
+            text-decoration: none;
+        }
     }
 }

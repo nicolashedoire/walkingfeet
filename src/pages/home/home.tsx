@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from "../../components/Navbar";
 import "./styles.scss"
 
+
 export default function Home() {
 
     return (
