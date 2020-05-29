@@ -6,7 +6,6 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import "./App.scss";
 
-
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={Home} />;

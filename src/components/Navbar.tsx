@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import './styles.scss';
+import styles from  './styles.module.scss';
 
 export default function Navbar() {
     return (
-        <div className="navbar">
+        <div className={styles.navbar}>
             <ul>
                 <li><NavLink to="/login">Se connecter</NavLink></li>
                 <li><NavLink to="/signup">Créer un compte</NavLink></li>
