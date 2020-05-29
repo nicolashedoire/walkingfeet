@@ -113,7 +113,7 @@ export default function Home() {
             </ul>
           </Col>
           <Col md={3}>
-            <h6>Réseaux sociaux</h6>
+            <h6>Termes</h6>
             <ul>
               <li>Termes</li>
               <li>Confidentialté</li>
