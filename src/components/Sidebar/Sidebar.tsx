@@ -18,10 +18,16 @@ const Sidebar: React.FC = () => {
   }];
 
   const [difficulty, setDifficulty] = React.useState(difficulties[0].value);
+  const [country, setCountry] = React.useState({key: 'FR', value: 'France'})
 
   const handleChangeDifficulty = (e: any) => {
     setDifficulty(e.currentTarget.value)
   }
+
+  const handleChangeCountry = (e: any) => {
+    const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
+    setCountry(selectedCountry);
+  } 
 
   return (<div className={`col-md-2 d-none d-md-block bg-light ${styles.root}`}>
     <div className={`${styles.sticky} mt-3`}>
@@ -44,11 +50,11 @@ const Sidebar: React.FC = () => {
         <Input
           type="select"
           name="select"
-          value={difficulty}
-          onChange={handleChangeDifficulty}
+          value={country.key}
+          onChange={handleChangeCountry}
         >
-          {countries.map((country : any ) => (
-            <option key={country.key} value={country.value}>
+          {countries.map((country : any) => (
+            <option key={country.key} value={country.key}>
               {country.value}
             </option>
           ))}
