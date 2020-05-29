@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 export default function Signup () {
     return (
         <div className={styles.signup}>
+        <NavLink to="/" className={styles.returnButton}><Button color="link">Retour</Button></NavLink>
         <h1>Créer votre compte</h1>
         <div className={styles.dividerContainer}>
            <div className={styles.divider}></div>
@@ -19,7 +20,7 @@ export default function Signup () {
        <Input type="password" name="password" id="password" placeholder="password" autoComplete="off" />
        </FormGroup>
        <FormGroup className={`mt-4`}>
-          <Button className="mr-4">Créer votre compte</Button>
+          <Button className="mr-4" color="primary">Créer votre compte</Button>
           </FormGroup>
        </Form>
      </div>

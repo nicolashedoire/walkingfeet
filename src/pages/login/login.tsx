@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 export default function Login() {
    return (
       <div className={styles.login}>
+         <NavLink to="/" className={styles.returnButton}><Button color="link">Retour</Button></NavLink>
          <h1>Good morning vietnam</h1>
          <Button className={`${styles.googleButton} mt-4`}>
             <img src="/images/google.svg" alt="google" width="30" />
@@ -26,7 +27,7 @@ export default function Login() {
         <Input type="password" name="password" id="password" placeholder="password" autoComplete="off" />
         </FormGroup>
         <FormGroup className={`mt-4 ${styles.actionsContainer}`}>
-           <Button className="mr-4">Se connecter</Button>
+           <Button className="mr-4" color="primary">Se connecter</Button>
            <NavLink to="/forgot-password" className={styles.forgotPassword}>Mot de passe oublié</NavLink>
            </FormGroup>
         </Form>

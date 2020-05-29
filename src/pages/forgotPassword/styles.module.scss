@@ -8,6 +8,12 @@
     align-items: center;
     flex-direction: column;
 
+    .returnButton {
+        position: absolute;
+        left: 25px;
+        top: 25px;
+    }
+
     h1 {
         color: #4a4a4a;
         font-size: 2.5rem;
