@@ -1,5 +1,8 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
+import { Button } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import styles from "./styles.module.scss";
 
 export default function Home() {
@@ -16,7 +19,12 @@ export default function Home() {
           pour vous!
         </p>
         <div className={styles.searchContainer}>
+          <FormGroup>
           <input placeholder="Rechercher une randonnée" />
+          <NavLink to="/search">
+          <Button color="primary">Rechercher</Button>
+          </NavLink>
+          </FormGroup>
         </div>
       </header>
 

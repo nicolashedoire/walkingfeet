@@ -1,0 +1,50 @@
+@import '../../styles/vars.scss';
+
+.root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 65px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.root :global .nav-link {
+  font-weight: $text-medium;
+  color: #333;
+}
+
+.root :global .nav-link.active,
+.root :global .nav-link:hover {
+  color: $color-secondary;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 80px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.root :global .nav-link :local .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+}
+
+.root :global .nav-link:hover :local .feather,
+.root :global .nav-link.active :local .feather {
+  color: inherit;
+}

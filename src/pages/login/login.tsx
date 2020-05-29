@@ -26,10 +26,12 @@ export default function Login() {
         <FormGroup className="mt-4">
         <Input type="password" name="password" id="password" placeholder="password" autoComplete="off" />
         </FormGroup>
-        <FormGroup className={`mt-4 ${styles.actionsContainer}`}>
-           <Button className="mr-4" color="primary">Se connecter</Button>
-           <NavLink to="/forgot-password" className={styles.forgotPassword}>Mot de passe oublié</NavLink>
-           </FormGroup>
+        <FormGroup className={`${styles.actionsContainer}`}>
+        <NavLink to="/dashboard" className={styles.returnButton}>
+         <Button className="mr-4" color="primary">Se connecter</Button>
+         </NavLink>
+         <NavLink to="/forgot-password" className={styles.forgotPassword}>Mot de passe oublié</NavLink>
+         </FormGroup>
         </Form>
       </div>
    )
