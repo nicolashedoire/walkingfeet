@@ -1,29 +1,59 @@
-import React from 'react';
-import Navbar from './components/Navbar'
-import './App.scss';
+import React from "react";
+import Navbar from "./components/Navbar";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
       <header className="header">
-      <Navbar />
+        <Navbar />
         <h1>Walking feet</h1>
         <div>
-          <input placeholder="Rechercher une randonnée"/>
+          <input placeholder="Rechercher une randonnée" />
         </div>
-       
       </header>
       <div className="informations">
-      <h2>Le principe</h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, minima, iste possimus facere sunt error laborum dolorum quis rem magni tempora temporibus, ipsa officiis repellat? Magnam quidem atque nihil numquam!
-      Voluptatum inventore unde ducimus tempora nulla vel neque repudiandae, magnam iste dicta cum, hic quo consectetur vitae eaque animi blanditiis. Nisi dolore corporis, commodi sint ut dignissimos eaque. Reprehenderit, eaque.
-      Nemo aspernatur aliquam, sint fugit reiciendis, provident deleniti illo modi ducimus recusandae, incidunt eos reprehenderit. Reiciendis molestiae tempore odit amet quaerat itaque voluptates, quos, reprehenderit aliquam illum aperiam, atque maxime.
-      Eos omnis assumenda odio facilis, aspernatur voluptatibus similique veniam placeat fugiat, aperiam repellendus. Dolores unde adipisci a repellendus hic, excepturi nobis aliquam, aut rerum quos quo deserunt quas delectus facilis!</p>
-      <h3>Nos objectifs</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad in ut consequatur excepturi quod neque magnam odio id esse ratione tempora, voluptate, impedit qui nisi porro repellendus doloremque ea! Corporis?
-      Autem adipisci officiis quo perspiciatis delectus rerum neque aut tempora maiores! Blanditiis, aliquid. Velit perferendis nesciunt totam tenetur maiores labore aperiam magni veritatis enim illo fugiat voluptatibus, voluptates assumenda voluptatem!
-      Ipsa excepturi cum labore in et, est nobis at inventore neque earum ullam expedita exercitationem quidem reiciendis tenetur sit hic molestiae consequuntur repellendus velit accusantium. Aspernatur ab quaerat ratione quisquam?
-      Ipsam fugiat laboriosam minima laborum voluptatem quasi dicta, impedit ab praesentium eum eligendi doloremque ea quibusdam sequi aliquam est. Repellendus neque voluptatibus sed distinctio quos totam debitis provident illum labore.</p>
+        <p>
+          Walking feet est une plateforme communautaire gratuite vous proposant
+          des balades et randonnées partout dans le monde. Il n’est pas toujours
+          évident de trouver des informations sur le net. Quoi de mieux qu’un
+          site qui les regroupe pour vous!
+        </p>
+        <h2>Découverte</h2>
+        <p>
+          Découvrez des lieux agréables ou des endroits insolites, un peu
+          partout dans le monde ou à 2 pas de chez vous.
+        </p>
+        <h2>Inspiration</h2>
+        <p>
+          Elargissez vos horizons et inspirez les autres utilisateurs. Grâce à
+          Walking Feet, partagez vos randonnées et découvrez de nouveaux
+          parcours.
+        </p>
+        <h2>Personnalisation</h2>
+        <p>
+          Vous aimez vous balader ou vous êtes un randonneur chevronné en quête
+          d’inspiration ? Seuls, en groupe ou avec vos enfants ? Toute une série
+          de critères vous aideront à trouver ce qui vous correspond le mieux.
+        </p>
+        <h2>Échange </h2>
+        <p>
+          Soyez acteurs de la plateforme en commentant les randonnées que vous
+          aurez découvertes grâce aux autres utilisateurs. Evaluez votre
+          expérience et complétez le contenu. Invitez vos proches à marcher avec
+          vous.
+        </p>
+        <h2>Carnet de bord</h2>
+        <p>
+          Grâce à votre carnet de bord, créez un historique de vos balades,
+          monitorez vos performances et partagez vos marches préférées.
+          Planifiez aussi vos prochaines randonnées.
+        </p>
+        <h3>Boite à idées</h3>
+        <p>
+          Aidez-nous à améliorer notre plateforme. 
+          Envoyez un mail via cet
+        </p>
       </div>
     </div>
   );
