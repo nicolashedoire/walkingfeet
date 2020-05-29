@@ -2,7 +2,6 @@ import React from 'react';
 import Hikings from './hikings';
 import HikingDetails from './hikingDetails';
 import { Route, Switch } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 
 const HikingsPage = () => {
     return (

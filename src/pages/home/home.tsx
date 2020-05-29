@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import { Button } from 'reactstrap';
-import { Form, FormGroup, Input } from 'reactstrap';
+import { FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import styles from "./styles.module.scss";
+import Card from '../../components/Card'
 
 export default function Home() {
   return (
@@ -30,23 +31,28 @@ export default function Home() {
         </div>
       </header>
 
-      <div className={styles.section}>
-        <div>
+      <Row className="mt-4">
+      <Col md={4}>
+        <Card> 
           <h2 className={styles.title}>Découverte</h2>
           <p className={styles.informations}>
             Découvrez des lieux agréables ou des endroits insolites, un peu
             partout dans le monde ou à 2 pas de chez vous.
           </p>
-        </div>
-        <div>
+        </Card>
+      </Col>
+      <Col md={4}>
+        <Card>
           <h2 className={styles.title}>Inspiration</h2>
           <p className={styles.informations}>
             Elargissez vos horizons et inspirez les autres utilisateurs. Grâce à
             <span className="walkingfeet"> Walking Feet</span>, partagez vos
             randonnées et découvrez de nouveaux parcours.
           </p>
-        </div>
-        <div>
+        </Card>
+      </Col>
+      <Col md={4}>
+        <Card>
           <h2 className={styles.title}>Personnalisation</h2>
           <p className={styles.informations}>
             Vous aimez vous balader ou vous êtes un randonneur chevronné en
@@ -54,8 +60,12 @@ export default function Home() {
             ? Toute une série de critères vous aideront à trouver ce qui vous
             correspond le mieux.
           </p>
-        </div>
-        <div>
+        </Card>
+      </Col>
+      </Row>
+      <Row className="mt-4">
+      <Col md={4}>
+        <Card>
           <h2 className={styles.title}>Échange </h2>
           <p className={styles.informations}>
             Soyez acteurs de la plateforme en commentant les randonnées que vous
@@ -63,20 +73,27 @@ export default function Home() {
             votre expérience et complétez le contenu. Invitez vos proches à
             marcher avec vous.
           </p>
-        </div>
-        <div> 
+        </Card>
+      </Col>
+      <Col md={4}>
+        <Card> 
         <h2 className={styles.title}>Carnet de bord</h2>
         <p className={styles.informations}>
           Grâce à votre carnet de bord, créez un historique de vos balades,
           monitorez vos performances et partagez vos marches préférées.
           <br></br>Planifiez aussi vos prochaines randonnées.
         </p>
-        </div>
+        </Card>
+      </Col>
+      <Col md={4}>
+        <Card>
         <h3 className={styles.title}>Boite à idées</h3>
         <p className={styles.informations}>
           Aidez-nous à améliorer notre plateforme. Envoyez un mail via cet
         </p>
-      </div>
+        </Card>
+      </Col>
+      </Row>
     </div>
   );
 }

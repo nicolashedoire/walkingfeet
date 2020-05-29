@@ -1,7 +1,6 @@
 import React from 'react';
-import { Nav, NavItem } from 'reactstrap';
-import { NavLink, Link } from 'react-router-dom';
-import { Form, FormGroup, Input } from 'reactstrap';
+import { Nav } from 'reactstrap';
+import { Input } from 'reactstrap';
 import styles from './Sidebar.module.scss';
 import getCountries from '../../services/countries';
 
