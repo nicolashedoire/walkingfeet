@@ -10,7 +10,9 @@ export default function Home() {
     <div className="App">
       <header className={styles.header}>
         <Navbar />
+        <NavLink to="/  ">
         <h1>Walking feet</h1>
+        </NavLink>
         <p className={styles.intro}>
           <span className="walkingfeet">Walking feet</span> est une plateforme
           communautaire gratuite vous proposant des balades et randonnées
@@ -21,7 +23,7 @@ export default function Home() {
         <div className={styles.searchContainer}>
           <FormGroup>
           <input placeholder="Rechercher une randonnée" />
-          <NavLink to="/search">
+          <NavLink to="/hikings">
           <Button color="primary">Rechercher</Button>
           </NavLink>
           </FormGroup>
