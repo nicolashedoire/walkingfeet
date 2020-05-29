@@ -17,7 +17,7 @@
         letter-spacing: -0.01562em;
     }
 
-    .google-button {
+    .googleButton {
         display: flex;
         color: #4a4a4a;
         justify-content: center;
@@ -43,7 +43,7 @@
         }
     }
 
-    .divider-container {
+    .dividerContainer {
         display: flex;
         margin-top: 32px;
         align-items: center;
@@ -73,9 +73,9 @@
           }
     }
 
-    .actions-container {
+    .actionsContainer {
         position: relative;
-        .forgot-password {
+        .forgotPassword {
             position: absolute;
             right: 0;
             top: 10px;
