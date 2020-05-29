@@ -1,1 +1,1 @@
-export { default } from './hikings';
+export { default } from './routes';
