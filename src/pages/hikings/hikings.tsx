@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 export default function Search() {
 
     return (
-        <Layout>
+        <Layout filters={true}>
             <div className={`${styles.search} mt-4`}>
                 {
                     hikings.map((hiking) => {

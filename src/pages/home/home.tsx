@@ -10,7 +10,7 @@ export default function Home() {
     <div className="App">
       <header className={styles.header}>
         <Navbar />
-        <NavLink to="/  ">
+        <NavLink to="/">
         <h1>Walking feet</h1>
         </NavLink>
         <p className={styles.intro}>

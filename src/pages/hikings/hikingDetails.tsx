@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function HikingDetails() {
     return (
-        <Layout>
+        <Layout filters={false}>
             Details
         </Layout>
     )
