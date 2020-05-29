@@ -65,19 +65,29 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 1.3em;
     color: #485460;
-    margin: 35px 50px 5px 50px;
+    margin: 5px 50px 5px 50px;
 }
-
+.section{
+    background-color:rgba(223, 249, 251,0.5);
+    padding:30px 30px;
+    width : 40%;
+    float:left;
+    border-radius:10px;
+    margin:10px;
+    overflow:hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
 .informations {
-        text-align: justify;
+    text-align: justify;
         margin: 10px 50px;
         font-family: 'Noto Sans JP', sans-serif;
-        width : 50%;
 }
 .walkingfeet {
     color:white;
     font-weight: bold;
-}
-.section{
-    
 }
