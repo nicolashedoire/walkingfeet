@@ -1,0 +1,29 @@
+.forgotPasswordPage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .returnButton {
+        position: absolute;
+        left: 25px;
+        top: 25px;
+    }
+
+    h1 {
+        color: #4a4a4a;
+        font-size: 2.5rem;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -0.01562em;
+    }
+
+    .forgotButton {
+        width: 100%;
+    }
+}
