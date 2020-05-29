@@ -1,11 +1,11 @@
 .header {
-    height: 450px;
+    height: 550px;
     background: rgba(30, 30,30, .8);
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    background-image: linear-gradient(0deg, rgba(30, 30, 30, 0), rgba(30, 30, 30, 0)), url('/images/header3.jpg');
+    background-image: linear-gradient(0deg, rgba(30, 30, 30, 0.3), rgba(30, 30, 30, 0.3)), url('/images/header3.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

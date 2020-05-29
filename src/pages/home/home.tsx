@@ -14,13 +14,13 @@ export default function Home() {
         <NavLink to="/">
         <h1>Walking feet</h1>
         </NavLink>
-        <p className={styles.intro}>
+        {/* <p className={styles.intro}>
           <span className="walkingfeet">Walking feet</span> est une plateforme
           communautaire gratuite vous proposant des balades et randonnées
           partout dans le monde. Il n’est pas toujours évident de trouver des
           informations sur le net. Quoi de mieux qu’un site qui les regroupe
           pour vous!
-        </p>
+        </p> */}
         <div className={styles.searchContainer}>
           <FormGroup>
           <input placeholder="Rechercher une randonnée" />
@@ -34,6 +34,7 @@ export default function Home() {
       <Row className="mt-4">
       <Col md={4}>
         <Card> 
+        <span className="bg-info rounded-circle mr-3 p-2"></span>
           <h2 className={styles.title}>Découverte</h2>
           <p className={styles.informations}>
             Découvrez des lieux agréables ou des endroits insolites, un peu
@@ -43,6 +44,7 @@ export default function Home() {
       </Col>
       <Col md={4}>
         <Card>
+        <span className="bg-info rounded-circle mr-3 p-2"></span>
           <h2 className={styles.title}>Inspiration</h2>
           <p className={styles.informations}>
             Elargissez vos horizons et inspirez les autres utilisateurs. Grâce à
@@ -53,6 +55,7 @@ export default function Home() {
       </Col>
       <Col md={4}>
         <Card>
+        <span className="bg-info rounded-circle mr-3 p-2"></span>
           <h2 className={styles.title}>Personnalisation</h2>
           <p className={styles.informations}>
             Vous aimez vous balader ou vous êtes un randonneur chevronné en
@@ -66,6 +69,7 @@ export default function Home() {
       <Row className="mt-4">
       <Col md={4}>
         <Card>
+        <span className="bg-info rounded-circle mr-3 p-2"></span>
           <h2 className={styles.title}>Échange </h2>
           <p className={styles.informations}>
             Soyez acteurs de la plateforme en commentant les randonnées que vous
@@ -77,6 +81,7 @@ export default function Home() {
       </Col>
       <Col md={4}>
         <Card> 
+        <span className="bg-info rounded-circle mr-3 p-2"></span>
         <h2 className={styles.title}>Carnet de bord</h2>
         <p className={styles.informations}>
           Grâce à votre carnet de bord, créez un historique de vos balades,
@@ -87,7 +92,8 @@ export default function Home() {
       </Col>
       <Col md={4}>
         <Card>
-        <h3 className={styles.title}>Boite à idées</h3>
+        <span className="bg-info rounded-circle mr-3 p-2"></span>
+        <h2 className={styles.title}>Boite à idées</h2> 
         <p className={styles.informations}>
           Aidez-nous à améliorer notre plateforme. Envoyez un mail via cet
         </p>
