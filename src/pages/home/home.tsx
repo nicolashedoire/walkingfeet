@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import { Button } from 'reactstrap';
-import { FormGroup, Label, Input, Row, Col } from 'reactstrap';
+import { FormGroup, Row, Col } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import styles from "./styles.module.scss";
 import Card from '../../components/Card'

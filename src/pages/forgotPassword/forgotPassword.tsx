@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 export default function ForgotPassword() {
     return (
         <div className={styles.forgotPasswordPage}>
-            <NavLink to="/login" className={styles.returnButton}><Button color="link">Retour</Button></NavLink>
+            <NavLink to="/signin" className={styles.returnButton}><Button color="link">Retour</Button></NavLink>
             <h1 className="mb-4">Mot de passe oublié</h1>
             <Form>
                 <FormGroup>

@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-// import Hikings from '../ducks/hikings';
+import Oauth from '../ducks/oauth';
 
 const rootReducer = combineReducers({
-  // hikings: Hikings.reducer,
+  oauth: Oauth.reducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Nav } from 'reactstrap';
-import { Input } from 'reactstrap';
+import { Input, Button } from 'reactstrap';
 import styles from './Sidebar.module.scss';
 import getCountries from '../../services/countries';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
 
@@ -59,6 +60,9 @@ const Sidebar: React.FC = () => {
             </option>
           ))}
         </Input>
+        <NavLink to='/hikings' className="mt-4">
+          <Button>Rechercher</Button>
+        </NavLink>
       </Nav>
     </div>
   </div>);

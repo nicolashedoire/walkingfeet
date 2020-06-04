@@ -1,12 +1,12 @@
 import React from 'react';
 import ForgotPassword from '../forgotPassword';
-import Login from './login';
+import SignIn from './signin';
 import { Route, Switch } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
     <Switch>
-      <Route path="/login" exact component={Login} />;
+      <Route path="/signin" exact component={SignIn} />;
       <Route path="/forgot-password" component={ForgotPassword} />;
     </Switch>
   )
