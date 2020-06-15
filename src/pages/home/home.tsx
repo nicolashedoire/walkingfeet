@@ -25,7 +25,7 @@ export default function Home() {
           <FormGroup>
             <input placeholder="Rechercher une randonnée" />
             <NavLink to="/hikings">
-              <Button color="primary">Rechercher</Button>
+              <Button color="primary">Rechercher bien</Button>
             </NavLink>
           </FormGroup>
         </div>
