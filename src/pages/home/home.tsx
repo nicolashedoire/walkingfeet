@@ -35,21 +35,10 @@ export default function Home() {
         <Col md={4}>
           <Card>
             <span className="bg-info rounded-circle mr-3 p-2"></span>
-            <h2 className={styles.title}>Découverte</h2>
-            <p className={styles.informations}>
-              Découvrez des lieux agréables ou des endroits insolites, un peu
-              partout dans le monde ou à 2 pas de chez vous.
-          </p>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <span className="bg-info rounded-circle mr-3 p-2"></span>
             <h2 className={styles.title}>Inspiration</h2>
             <p className={styles.informations}>
-              Elargissez vos horizons et inspirez les autres utilisateurs. Grâce à
-            <span className="walkingfeet"> Walking Feet</span>, partagez vos
-            randonnées et découvrez de nouveaux parcours.
+              Elargissez vos horizons en découvrant des lieux agréables ou des endroits insolites, un peu
+              partout dans le monde ou à 2 pas de chez vous. Inspirez les autres utilisateurs et partagez vos randonnées.
           </p>
           </Card>
         </Col>
@@ -70,7 +59,7 @@ export default function Home() {
         <Col md={4}>
           <Card>
             <span className="bg-info rounded-circle mr-3 p-2"></span>
-            <h2 className={styles.title}>Échange </h2>
+            <h2 className={styles.title}>Partage </h2>
             <p className={styles.informations}>
               Soyez acteurs de la plateforme en commentant les randonnées que vous
             aurez découvertes grâce aux autres utilisateurs. <br></br>Evaluez
