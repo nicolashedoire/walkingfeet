@@ -162,7 +162,7 @@ export default function Home() {
           </Col>
           <Col md={3}>
             <h6>Termes</h6>
-            <ul>
+            <ul className={styles.terms}>
               <li>Termes</li>
               <li>Confidentialté</li>
             </ul>
