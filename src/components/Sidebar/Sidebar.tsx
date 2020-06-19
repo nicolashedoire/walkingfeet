@@ -47,7 +47,7 @@ const Sidebar: React.FC = () => {
           ))}
         </Input>
 
-        <label className="mt-4">Pays</label>
+        <label className="mt-2">Pays</label>
         <Input
           type="select"
           name="select"
@@ -60,6 +60,12 @@ const Sidebar: React.FC = () => {
             </option>
           ))}
         </Input>
+        <label className="mt-2">Ville</label>
+        <Input
+          type="text"
+          value={""}
+          onChange={handleChangeCountry}
+        />
         <NavLink to='/hikings' className="mt-4">
           <Button>Rechercher</Button>
         </NavLink>
