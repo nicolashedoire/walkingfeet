@@ -6,8 +6,48 @@ import { Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from '../../services/date';
+import getCountries from '../../services/countries';
+import Rating, { IconContainerProps } from "@material-ui/lab/Rating";
+import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAltOutlined";
+import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
+
+
+const customIcons: {
+    [index: string]: { icon: React.ReactElement; label: string };
+} = {
+    1: {
+        icon: <SentimentVeryDissatisfiedIcon />,
+        label: "Very Dissatisfied",
+    },
+    2: {
+        icon: <SentimentDissatisfiedIcon />,
+        label: "Dissatisfied",
+    },
+    3: {
+        icon: <SentimentSatisfiedIcon />,
+        label: "Neutral",
+    },
+    4: {
+        icon: <SentimentSatisfiedAltIcon />,
+        label: "Satisfied",
+    },
+    5: {
+        icon: <SentimentVerySatisfiedIcon />,
+        label: "Very Satisfied",
+    },
+};
+
+function IconContainer(props: IconContainerProps) {
+    const { value, ...other } = props;
+    return <span {...other}>{customIcons[value].icon}</span>;
+  }
 
 export default function AddHiking() {
+
+    const countries = getCountries();
 
     interface Ihiking {
         _id: string;
@@ -31,18 +71,32 @@ export default function AddHiking() {
     const hiking = {
         name: '',
         difficulty: '',
-        country: 'be',
+        country: 'BE',
         city: 'Mons',
         startDate: new Date(Date.now()).toString(),
         startTime: '',
         endDate: new Date(Date.now()).toString(),
         endTime: '',
         distance: '',
-        den: ''
+        den: '',
+        note: 1
     }
 
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
     const types: Array<string> = ["route", "sentier", "forêt", "sable"];
+
+    const [difficulty, setDifficulty] = React.useState(difficulties[0]);
+    const [country, setCountry] = React.useState({ key: 'FR', value: 'France' })
+
+
+    const handleChangeDifficulty = (e: any) => {
+        setDifficulty(e.currentTarget.value)
+    }
+
+    const handleChangeCountry = (e: any) => {
+        const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
+        setCountry(selectedCountry);
+    }
 
     return (
         <Layout filters={false}>
@@ -112,12 +166,18 @@ export default function AddHiking() {
                                                 <Label>Pays</Label>
                                                 <Input
                                                     value={values?.country}
-                                                    type="text"
+                                                    type="select"
                                                     component="input"
                                                     onChange={(event) => {
 
                                                     }}
-                                                />
+                                                >
+                                                    {countries.map((country: any) => (
+                                                        <option key={country.key} value={country.key}>
+                                                            {country.value}
+                                                        </option>
+                                                    ))}
+                                                </Input>
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -132,11 +192,11 @@ export default function AddHiking() {
                                 </Col>
                             </Row>
 
-                            <Row className="mt-2 m-0">
+                            <Row className="m-0">
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Temporalité</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Temporalité</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -200,7 +260,7 @@ export default function AddHiking() {
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Caractéristiques</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Caractéristiques</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -216,14 +276,54 @@ export default function AddHiking() {
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
-                                            <label>Dénivelé</label>
-                                            <Input
-                                                value={values?.den}
-                                                type="text"
-                                                component="input"
-                                            />
+                                            <FormGroup>
+                                                <label>Dénivelé</label>
+                                                <Input
+                                                    value={values?.den}
+                                                    type="text"
+                                                    component="input"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={6}>
+                                            <FormGroup>
+                                                <label>Type de chemins</label>
+                                                <div className={styles.types}>
+                                                    {
+                                                        types.map(type => {
+                                                            return (
+                                                                <div style={{ width: 'fit-content' }}>
+                                                                    <Input
+                                                                        value={values?.den}
+                                                                        type="checkbox"
+                                                                        component="input"
+                                                                    />
+                                                                    <span>{type}</span>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </FormGroup>
                                         </Col>
                                     </Row>
+                                </Col>
+                            </Row>
+
+                            <Row className="mt-2 m-0">
+                                <Col md={12}>
+                                    <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                </Col>
+                                <Col md={12}>
+                                    <Rating
+                                        name="customized-icons"
+                                        value={values?.note}
+                                        onChange={(event, newValue) => {
+                                            console.log(newValue);
+                                        }}
+                                        getLabelText={(value: number) => customIcons[value].label}
+                                        IconContainerComponent={IconContainer}
+                                    />
                                 </Col>
                             </Row>
 

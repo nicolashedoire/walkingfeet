@@ -13,7 +13,7 @@ const Topbar = () => {
   
   return (<Navbar color="light" light fixed="top" className={`${styles.navbar} shadow`}>
     <NavbarBrand href="/" className={`${styles.root} col-sm-3 col-md-2 mr-0 pt-3`}>
-      <span>Walkingfeet</span>
+      <span>Walkin'feet</span>
     </NavbarBrand>
     {isLogged ? <NavbarText className={styles.navbarText}>
       <span className="bg-info rounded-circle mr-3 p-2 text-light">JD</span>
