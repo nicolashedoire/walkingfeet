@@ -26,13 +26,19 @@
 
   input {
     width: 300px;
-    height: 40px;
+    height: 42px;
     font-size: 15px;
     padding-left: 15px;
-    border-color:#fff;
+    border-color: none;
+    color: rgb(30,30,30);
+    border: none!important;
     &::placeholder {
-      color: silver;
+      color: rgb(175, 172, 172);
       font-size: 1em;
+    }
+    &:focus, &:hover {
+      border: none!important;
+      outline: none!important;
     }
     justify-content: center;
     align-items: center;
@@ -43,9 +49,11 @@
   background-color: #00a6fb !important;
   border-color: #00a6fb !important;
   margin-bottom: 5px;
-  margin-left: 5px;
+  margin-left: 0;
+  height: 42px;
   font-size: 15px !important;
   font-weight: 600 !important;
+  border-radius: 0!important;
 }
 .flexCenter {
   display: flex;
@@ -59,12 +67,14 @@
   align-items: center;
   flex-direction: column;
 }
+
 .icone {
   color: #00a6fb;
   margin-left: 10px;
   text-align: center;
   font-size: 25px;
 }
+
 .title {
   text-align: center;
   font-weight: 600;
@@ -73,6 +83,7 @@
   color: #00a6fb;
   margin: 5px;
 }
+
 .section {
   background-color: rgba(223, 249, 251, 0.5);
   padding: 30px 30px;
@@ -88,12 +99,12 @@
   justify-items: center;
   flex-direction: column;
 }
+
 .informations {
   text-align: justify;
   margin: 20px 40px 30px 40px;
   font-family: "Noto Sans JP", sans-serif;
 }
-
 
 .footer {
   height: 250px;
