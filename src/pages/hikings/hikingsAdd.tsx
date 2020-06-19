@@ -3,6 +3,9 @@ import Layout from '../../components/Layout';
 import styles from './styles.module.scss';
 import { Form, Formik } from 'formik';
 import { Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { formatDate } from '../../services/date';
 
 export default function AddHiking() {
 
@@ -30,9 +33,9 @@ export default function AddHiking() {
         difficulty: '',
         country: 'be',
         city: 'Mons',
-        startDate: '',
+        startDate: new Date(Date.now()).toString(),
         startTime: '',
-        endDate: '',
+        endDate: new Date(Date.now()).toString(),
         endTime: '',
         distance: '',
         den: ''
@@ -138,14 +141,20 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label>Date de départ</Label>
-                                                <Input
-                                                    value={values?.name}
-                                                    type="text"
-                                                    component="input"
-                                                    onChange={(event) => {
-
-                                                    }}
-                                                />
+                                                <div>
+                                                    <DatePicker
+                                                        dateFormat="dd/MM/yyyy"
+                                                        className="form-control"
+                                                        selected={
+                                                            new Date(
+                                                                formatDate(values?.startDate)
+                                                            )
+                                                        }
+                                                        onChange={(val) => {
+                                                            console.log(val)
+                                                        }}
+                                                    />
+                                                </div>
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -161,14 +170,20 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label>Date d'arrivée</Label>
-                                                <Input
-                                                    value={values?.name}
-                                                    type="text"
-                                                    component="input"
-                                                    onChange={(event) => {
-
-                                                    }}
-                                                />
+                                                <div>
+                                                    <DatePicker
+                                                        dateFormat="dd/MM/yyyy"
+                                                        className="form-control"
+                                                        selected={
+                                                            new Date(
+                                                                formatDate(values?.endDate)
+                                                            )
+                                                        }
+                                                        onChange={(val) => {
+                                                            console.log(val)
+                                                        }}
+                                                    />
+                                                </div>
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
