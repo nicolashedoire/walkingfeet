@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/testheader04.jpg");
+  background-image: linear-gradient(rgba(30, 30, 30,.4),rgba(30,30,30, 0)), url("/images/testheader04.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
