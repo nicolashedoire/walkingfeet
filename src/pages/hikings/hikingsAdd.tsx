@@ -79,7 +79,8 @@ export default function AddHiking() {
         endTime: '',
         distance: '',
         den: '',
-        note: 1
+        note: 1,
+        images: []
     }
 
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
@@ -260,7 +261,7 @@ export default function AddHiking() {
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
-                                            <Label>Distance</Label>
+                                                <Label>Distance</Label>
                                                 <InputGroup>
                                                     <Input
                                                         value={values?.distance}
@@ -315,20 +316,44 @@ export default function AddHiking() {
                             </Row>
 
                             <Row className="mt-2 m-0">
-                                <Col md={12}>
-                                    <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                <Col md={6}>
+                                    <Row>
+                                        <Col md={12}>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                        </Col>
+                                        <Col md={12}>
+                                            <Rating
+                                                name="customized-icons"
+                                                value={values?.note}
+                                                onChange={(event, newValue) => {
+                                                    console.log(newValue);
+                                                    setFieldValue('note', newValue);
+                                                }}
+                                                getLabelText={(value: number) => customIcons[value].label}
+                                                IconContainerComponent={IconContainer}
+                                            />
+                                        </Col>
+                                    </Row>
                                 </Col>
-                                <Col md={12}>
-                                    <Rating
-                                        name="customized-icons"
-                                        value={values?.note}
-                                        onChange={(event, newValue) => {
-                                            console.log(newValue);
-                                            setFieldValue('note', newValue);
-                                        }}
-                                        getLabelText={(value: number) => customIcons[value].label}
-                                        IconContainerComponent={IconContainer}
-                                    />
+                                <Col md={6}>
+                                    <Row>
+                                        <Col md={12}>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Upload images</h2>
+                                        </Col>
+                                        <Col md={12}>
+                                        <FormGroup>
+                                                <Input
+                                                    value={values?.images}
+                                                    type="file"
+                                                    component="input"
+                                                    multiple
+                                                    onChange={(event: any) => {
+                                                        const files = Array.from(event.target.files)
+                                                    }}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Row>
 
