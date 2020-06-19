@@ -33,7 +33,7 @@ export default function Home() {
         </div>
 
       </header>
-      
+
       <Row className="mt-4 m-2">
         <Col md={4}>
           <div className={styles.flexCenter}>
@@ -138,33 +138,37 @@ export default function Home() {
           <Col md={3}>
             <h6>Réseaux sociaux</h6>
             <ul className={styles.socialMedias}>
-                <li>
-                  <a href="https://www.facebook.com/hedoire" target="_blank">
-                    <FontAwesomeIcon icon={faFacebook} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/in/nicolas-hedoire-1734775b" target="_blank">
-                    <FontAwesomeIcon icon={faLinkedin} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/hnhack" target="_blank">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/nicolashedoire" target="_blank">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </a>
-                </li>
-              </ul>
+              <li>
+                <a href="https://www.facebook.com/hedoire" target="_blank">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/nicolas-hedoire-1734775b" target="_blank">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/hnhack" target="_blank">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/nicolashedoire" target="_blank">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </li>
+            </ul>
           </Col>
           <Col md={3}>
             <h6>Termes</h6>
             <ul className={styles.terms}>
-              <li>Termes</li>
-              <li>Confidentialté</li>
+              <li>
+                <NavLink to="/terms">Termes</NavLink>
+              </li>
+              <li>
+                <NavLink to="/confidentiality">Confidentialté</NavLink>
+              </li>
             </ul>
           </Col>
         </Row>

@@ -10,6 +10,8 @@ import SignUp from './pages/signup';
 import SignupSuccess from './pages/signup/signupSuccess';
 import Hikings from './pages/hikings';
 import HikingDetails from './pages/hikings/hikingDetails';
+import Terms from './pages/terms';
+import Confidentiality from './pages/confidentiality';
 import { jwtExist } from './services/oauth';
 import "./App.scss";
 
@@ -21,6 +23,8 @@ const Routes = () => {
     { path: '/dashboard', component: Dashboard, isPublic: false, visibleWithToken: true },
     { path: '/hikings', component: Hikings, isPublic: true, visibleWithToken: true },
     { path: '/hikings/:id', component: HikingDetails, isPublic: true, visibleWithToken: true },
+    { path: '/terms', component: Terms, isPublic: true, visibleWithToken: true },
+    { path: '/confidentiality', component: Confidentiality, isPublic: true, visibleWithToken: true },
     { path: '/signup', component: SignUp, isPublic: true, visibleWithToken: false },
     { path: '/signup/success', component: SignupSuccess, isPublic: true, visibleWithToken: false },
     { path: '/signin', component: SignIn, isPublic: true, visibleWithToken: false },
