@@ -64,11 +64,11 @@ export default function AddHiking() {
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className="title p-0 m-0 mb-3 mt-4">Informations</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Informations</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
-                                                <Label for="siret">Nom de la randonnée</Label>
+                                                <Label>Nom de la randonnée</Label>
                                                 <Input
                                                     value={values?.name}
                                                     type="text"
@@ -102,7 +102,7 @@ export default function AddHiking() {
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className="title p-0 m-0 mb-3 mt-4">Localisation</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Localisation</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -133,11 +133,11 @@ export default function AddHiking() {
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className="title p-0 m-0 mb-3">Temporalité</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Temporalité</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
-                                                <Label for="siret">Date de départ</Label>
+                                                <Label>Date de départ</Label>
                                                 <Input
                                                     value={values?.name}
                                                     type="text"
@@ -160,7 +160,7 @@ export default function AddHiking() {
                                     <Row>
                                         <Col md={6}>
                                             <FormGroup>
-                                                <Label for="siret">Date d'arrivée</Label>
+                                                <Label>Date d'arrivée</Label>
                                                 <Input
                                                     value={values?.name}
                                                     type="text"
@@ -185,7 +185,7 @@ export default function AddHiking() {
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className="title p-0 m-0 mb-3">Caractéristiques</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Caractéristiques</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
