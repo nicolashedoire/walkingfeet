@@ -264,7 +264,7 @@ export default function AddHiking() {
                                                 <InputGroup>
                                                     <Input
                                                         value={values?.distance}
-                                                        type="text"
+                                                        type="number"
                                                         component="input"
                                                         onChange={(event) => {
                                                             setFieldValue('distance', event.currentTarget.value);
