@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import styles from './styles.module.scss';
 import { Form, Formik } from 'formik';
-import { Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Row, Col, FormGroup, Label, Input, Button, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from '../../services/date';
@@ -43,7 +43,7 @@ const customIcons: {
 function IconContainer(props: IconContainerProps) {
     const { value, ...other } = props;
     return <span {...other}>{customIcons[value].icon}</span>;
-  }
+}
 
 export default function AddHiking() {
 
@@ -71,32 +71,20 @@ export default function AddHiking() {
     const hiking = {
         name: '',
         difficulty: '',
-        country: 'BE',
-        city: 'Mons',
+        country: 'FR',
+        city: 'Lille',
         startDate: new Date(Date.now()).toString(),
         startTime: '',
         endDate: new Date(Date.now()).toString(),
         endTime: '',
         distance: '',
         den: '',
-        note: 1
+        note: 1,
+        images: ''
     }
 
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
     const types: Array<string> = ["route", "sentier", "forêt", "sable"];
-
-    const [difficulty, setDifficulty] = React.useState(difficulties[0]);
-    const [country, setCountry] = React.useState({ key: 'FR', value: 'France' })
-
-
-    const handleChangeDifficulty = (e: any) => {
-        setDifficulty(e.currentTarget.value)
-    }
-
-    const handleChangeCountry = (e: any) => {
-        const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
-        setCountry(selectedCountry);
-    }
 
     return (
         <Layout filters={false}>
@@ -110,12 +98,13 @@ export default function AddHiking() {
                         return errors;
                     }}
                     onSubmit={(values, { setSubmitting }) => {
+                        console.log(values)
                         setTimeout(() => {
-                            setSubmitting(false);
+
                         }, 1000);
                     }}
                 >
-                    {({ values }) =>
+                    {({ values, setFieldValue }) =>
                         <Form>
                             <Row className="mt-2 m-0">
                                 <Col md={6}>
@@ -131,7 +120,7 @@ export default function AddHiking() {
                                                     type="text"
                                                     component="input"
                                                     onChange={(event) => {
-
+                                                        setFieldValue('name', event.currentTarget.value);
                                                     }}
                                                 />
                                             </FormGroup>
@@ -142,10 +131,9 @@ export default function AddHiking() {
                                                 type="select"
                                                 value={values?.difficulty}
                                                 onChange={(event) => {
-                                                    console.log(event.currentTarget.value);
+                                                    setFieldValue('difficulty', event.currentTarget.value);
                                                 }}
                                             >
-                                                <option value="">Choisir</option>
                                                 {difficulties.map((el) => (
                                                     <option key={el} value={el}>
                                                         {el}
@@ -169,7 +157,7 @@ export default function AddHiking() {
                                                     type="select"
                                                     component="input"
                                                     onChange={(event) => {
-
+                                                        setFieldValue('country', event.currentTarget.value);
                                                     }}
                                                 >
                                                     {countries.map((country: any) => (
@@ -186,6 +174,9 @@ export default function AddHiking() {
                                                 value={values?.city}
                                                 type="text"
                                                 component="input"
+                                                onChange={(event) => {
+                                                    setFieldValue('city', event.currentTarget.value);
+                                                }}
                                             />
                                         </Col>
                                     </Row>
@@ -211,7 +202,7 @@ export default function AddHiking() {
                                                             )
                                                         }
                                                         onChange={(val) => {
-                                                            console.log(val)
+                                                            setFieldValue('startDate', val);
                                                         }}
                                                     />
                                                 </div>
@@ -220,9 +211,12 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <label>Heure de départ</label>
                                             <Input
-                                                value={values?.difficulty}
-                                                type="text"
+                                                value={values?.startTime}
+                                                type="time"
                                                 component="input"
+                                                onChange={(event) => {
+                                                    setFieldValue('startTime', event.currentTarget.value);
+                                                }}
                                             />
                                         </Col>
                                     </Row>
@@ -240,7 +234,7 @@ export default function AddHiking() {
                                                             )
                                                         }
                                                         onChange={(val) => {
-                                                            console.log(val)
+                                                            setFieldValue('endDate', val);
                                                         }}
                                                     />
                                                 </div>
@@ -249,9 +243,12 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <label>Heure d'arrivée</label>
                                             <Input
-                                                value={values?.difficulty}
-                                                type="text"
+                                                value={values?.endTime}
+                                                type="time"
                                                 component="input"
+                                                onChange={(event) => {
+                                                    setFieldValue('endTime', event.currentTarget.value);
+                                                }}
                                             />
                                         </Col>
                                     </Row>
@@ -265,14 +262,19 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label>Distance</Label>
-                                                <Input
-                                                    value={values?.distance}
-                                                    type="text"
-                                                    component="input"
-                                                    onChange={(event) => {
-
-                                                    }}
-                                                />
+                                                <InputGroup>
+                                                    <Input
+                                                        value={values?.distance}
+                                                        type="number"
+                                                        component="input"
+                                                        onChange={(event) => {
+                                                            setFieldValue('distance', event.currentTarget.value);
+                                                        }}
+                                                    />
+                                                    <InputGroupAddon addonType="append">
+                                                        <InputGroupText>km</InputGroupText>
+                                                    </InputGroupAddon>
+                                                </InputGroup>
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -282,6 +284,9 @@ export default function AddHiking() {
                                                     value={values?.den}
                                                     type="text"
                                                     component="input"
+                                                    onChange={(event) => {
+                                                        setFieldValue('den', event.currentTarget.value);
+                                                    }}
                                                 />
                                             </FormGroup>
                                         </Col>
@@ -311,19 +316,49 @@ export default function AddHiking() {
                             </Row>
 
                             <Row className="mt-2 m-0">
-                                <Col md={12}>
-                                    <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                <Col md={6}>
+                                    <Row>
+                                        <Col md={12}>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                        </Col>
+                                        <Col md={12}>
+                                            <Rating
+                                                name="customized-icons"
+                                                value={values?.note}
+                                                onChange={(event, newValue) => {
+                                                    console.log(newValue);
+                                                    setFieldValue('note', newValue);
+                                                }}
+                                                getLabelText={(value: number) => customIcons[value].label}
+                                                IconContainerComponent={IconContainer}
+                                            />
+                                        </Col>
+                                    </Row>
                                 </Col>
-                                <Col md={12}>
-                                    <Rating
-                                        name="customized-icons"
-                                        value={values?.note}
-                                        onChange={(event, newValue) => {
-                                            console.log(newValue);
-                                        }}
-                                        getLabelText={(value: number) => customIcons[value].label}
-                                        IconContainerComponent={IconContainer}
-                                    />
+                                <Col md={6}>
+                                    <Row>
+                                        <Col md={12}>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Upload images</h2>
+                                        </Col>
+                                        <Col md={12}>
+                                        <FormGroup>
+                                                <Input
+                                                    value={values?.images}
+                                                    type="file"
+                                                    component="input"
+                                                    // multiple
+                                                    onChange={(event: any) => {
+                                                        const files = Array.from(event.target.files)
+                                                        const reader = new FileReader(); 
+                                                        reader.readAsDataURL(files[0] as Blob);
+                                                        reader.onload = function(upload: any) {
+                                                            setFieldValue('image', upload?.target?.result);
+                                                        };                                                 
+                                                    }}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Row>
 
