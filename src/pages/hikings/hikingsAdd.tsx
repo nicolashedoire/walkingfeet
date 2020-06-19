@@ -216,12 +216,35 @@ export default function AddHiking() {
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
-                                            <label>Dénivelé</label>
-                                            <Input
-                                                value={values?.den}
-                                                type="text"
-                                                component="input"
-                                            />
+                                            <FormGroup>
+                                                <label>Dénivelé</label>
+                                                <Input
+                                                    value={values?.den}
+                                                    type="text"
+                                                    component="input"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={6}>
+                                            <FormGroup>
+                                                <label>Type de chemins</label>
+                                                <div className={styles.types}>
+                                                    {
+                                                        types.map(type => {
+                                                            return (
+                                                                <div style={{width: 'fit-content'}}>
+                                                                    <Input
+                                                                        value={values?.den}
+                                                                        type="checkbox"
+                                                                        component="input"
+                                                                    />
+                                                                    <span>{type}</span>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </FormGroup>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -229,7 +252,7 @@ export default function AddHiking() {
 
                             <Row className="mt-2 m-0">
                                 <Col md={12}>
-                                <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                    <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
                                 </Col>
                             </Row>
 

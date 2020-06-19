@@ -28,4 +28,9 @@
         margin-bottom: 10px;
         border: 1px solid rgba(30, 30, 30, 0.07);
     }
+
+    .types {
+        display: flex;
+        justify-content: space-around;
+    }
 }
