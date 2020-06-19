@@ -6,8 +6,11 @@ import { Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from '../../services/date';
+import getCountries from '../../services/countries';
 
 export default function AddHiking() {
+
+    const countries = getCountries();
 
     interface Ihiking {
         _id: string;
@@ -31,7 +34,7 @@ export default function AddHiking() {
     const hiking = {
         name: '',
         difficulty: '',
-        country: 'be',
+        country: 'BE',
         city: 'Mons',
         startDate: new Date(Date.now()).toString(),
         startTime: '',
@@ -43,6 +46,19 @@ export default function AddHiking() {
 
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
     const types: Array<string> = ["route", "sentier", "forêt", "sable"];
+
+    const [difficulty, setDifficulty] = React.useState(difficulties[0]);
+    const [country, setCountry] = React.useState({ key: 'FR', value: 'France' })
+
+
+    const handleChangeDifficulty = (e: any) => {
+        setDifficulty(e.currentTarget.value)
+    }
+
+    const handleChangeCountry = (e: any) => {
+        const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
+        setCountry(selectedCountry);
+    }
 
     return (
         <Layout filters={false}>
@@ -112,12 +128,18 @@ export default function AddHiking() {
                                                 <Label>Pays</Label>
                                                 <Input
                                                     value={values?.country}
-                                                    type="text"
+                                                    type="select"
                                                     component="input"
                                                     onChange={(event) => {
 
                                                     }}
-                                                />
+                                                >
+                                                    {countries.map((country: any) => (
+                                                        <option key={country.key} value={country.key}>
+                                                            {country.value}
+                                                        </option>
+                                                    ))}
+                                                </Input>
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -232,7 +254,7 @@ export default function AddHiking() {
                                                     {
                                                         types.map(type => {
                                                             return (
-                                                                <div style={{width: 'fit-content'}}>
+                                                                <div style={{ width: 'fit-content' }}>
                                                                     <Input
                                                                         value={values?.den}
                                                                         type="checkbox"
