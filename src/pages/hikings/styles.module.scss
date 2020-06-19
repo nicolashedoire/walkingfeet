@@ -4,3 +4,28 @@
     display: flex;
     flex-direction: row;
 }
+
+.hikingAdd {
+    h1 {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 1em;
+    }
+
+    .tagTitle {
+        position: relative;
+        text-transform: uppercase;
+        text-align: left;
+        font-size: .9rem;
+        font-weight: 300;
+        color: rgba(30, 30, 30, 0.8);
+        background: rgba(30, 30, 30, 0.05);
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 3px 10px!important;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(30, 30, 30, 0.07);
+    }
+}

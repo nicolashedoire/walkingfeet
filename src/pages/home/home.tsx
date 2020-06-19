@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import { Button } from "reactstrap";
 import { FormGroup, Label, Input, Row, Col } from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
 import Card from "../../components/Card";
@@ -31,7 +33,7 @@ export default function Home() {
         </div>
 
       </header>
-      
+
       <Row className="mt-4 m-2">
         <Col md={4}>
           <div className={styles.flexCenter}>
@@ -135,19 +137,38 @@ export default function Home() {
         <Row className="mt-4 m-2">
           <Col md={3}>
             <h6>Réseaux sociaux</h6>
-            <ul>
-              <li>Facebook</li>
-              <li>Twitter</li>
-              <li>Instagram</li>
-              <li>Linkedin</li>
-              <li>Youtube</li>
+            <ul className={styles.socialMedias}>
+              <li>
+                <a href="https://www.facebook.com/hedoire" target="_blank">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/nicolas-hedoire-1734775b" target="_blank">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/hnhack" target="_blank">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/nicolashedoire" target="_blank">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </li>
             </ul>
           </Col>
           <Col md={3}>
             <h6>Termes</h6>
-            <ul>
-              <li>Termes</li>
-              <li>Confidentialté</li>
+            <ul className={styles.terms}>
+              <li>
+                <NavLink to="/terms">Termes</NavLink>
+              </li>
+              <li>
+                <NavLink to="/confidentiality">Confidentialté</NavLink>
+              </li>
             </ul>
           </Col>
         </Row>
