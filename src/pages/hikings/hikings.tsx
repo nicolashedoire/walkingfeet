@@ -14,7 +14,7 @@ export default function Search() {
                 {
                     hikings.map((hiking) => {
                         return (
-                            <Card>
+                            <Card key={hiking._id}>
                                 <img src="/images/header2.jpg" width="250" alt="randonnée" title="randonnée" />
                                 <h4 className="mt-4"><b>{hiking.title}</b></h4>
                                 <p>{hiking.description}</p>
