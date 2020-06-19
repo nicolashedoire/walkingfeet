@@ -85,29 +85,6 @@ export default function AddHiking() {
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
     const types: Array<string> = ["route", "sentier", "forêt", "sable"];
 
-    // const [hikingName, setHikingName] = React.useState("");
-    // const [difficulty, setDifficulty] = React.useState(difficulties[0]);
-    // const [city, setCity] = React.useState<String | null>("");
-    // const [country, setCountry] = React.useState({ key: 'FR', value: 'France' })
-    // const [distance, setDistance] = React.useState<String | null>("");
-    // const [elevation, setElevation] = React.useState<String | null>("");
-    // const [hikings, setHikings] = React.useState([] as any);
-    // const [date, setDate] = React.useState<Date | null>(null);
-    // const [startTime, setStartTime] = React.useState<Date | null>(null);
-    // const [endTime, setEndTime] = React.useState<Date | null>(null);
-    // const [note, setNote] = React.useState<number | null>(0);
-    // const [selectedHiking, setSelectedHiking] = React.useState({} as Ihiking);
-
-
-    // const handleChangeDifficulty = (e: any) => {
-    //     setDifficulty(e.currentTarget.value)
-    // }
-
-    // const handleChangeCountry = (e: any) => {
-    //     const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
-    //     setCountry(selectedCountry);
-    // }
-
     return (
         <Layout filters={false}>
             <div className={`${styles.hikingAdd} mt-4`}>
@@ -156,7 +133,6 @@ export default function AddHiking() {
                                                     setFieldValue('difficulty', event.currentTarget.value);
                                                 }}
                                             >
-                                                <option value="">Choisir</option>
                                                 {difficulties.map((el) => (
                                                     <option key={el} value={el}>
                                                         {el}
@@ -235,7 +211,7 @@ export default function AddHiking() {
                                             <label>Heure de départ</label>
                                             <Input
                                                 value={values?.startTime}
-                                                type="text"
+                                                type="time"
                                                 component="input"
                                                 onChange={(event) => {
                                                     setFieldValue('startTime', event.currentTarget.value);
@@ -267,7 +243,7 @@ export default function AddHiking() {
                                             <label>Heure d'arrivée</label>
                                             <Input
                                                 value={values?.endTime}
-                                                type="text"
+                                                type="time"
                                                 component="input"
                                                 onChange={(event) => {
                                                     setFieldValue('endTime', event.currentTarget.value);
