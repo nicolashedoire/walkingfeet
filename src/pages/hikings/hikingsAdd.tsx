@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import styles from './styles.module.scss';
 import { Form, Formik } from 'formik';
-import { Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Row, Col, FormGroup, Label, Input, Button, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from '../../services/date';
@@ -43,7 +43,7 @@ const customIcons: {
 function IconContainer(props: IconContainerProps) {
     const { value, ...other } = props;
     return <span {...other}>{customIcons[value].icon}</span>;
-  }
+}
 
 export default function AddHiking() {
 
@@ -71,8 +71,8 @@ export default function AddHiking() {
     const hiking = {
         name: '',
         difficulty: '',
-        country: 'BE',
-        city: 'Mons',
+        country: 'FR',
+        city: 'Lille',
         startDate: new Date(Date.now()).toString(),
         startTime: '',
         endDate: new Date(Date.now()).toString(),
@@ -85,18 +85,28 @@ export default function AddHiking() {
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
     const types: Array<string> = ["route", "sentier", "forêt", "sable"];
 
-    const [difficulty, setDifficulty] = React.useState(difficulties[0]);
-    const [country, setCountry] = React.useState({ key: 'FR', value: 'France' })
+    // const [hikingName, setHikingName] = React.useState("");
+    // const [difficulty, setDifficulty] = React.useState(difficulties[0]);
+    // const [city, setCity] = React.useState<String | null>("");
+    // const [country, setCountry] = React.useState({ key: 'FR', value: 'France' })
+    // const [distance, setDistance] = React.useState<String | null>("");
+    // const [elevation, setElevation] = React.useState<String | null>("");
+    // const [hikings, setHikings] = React.useState([] as any);
+    // const [date, setDate] = React.useState<Date | null>(null);
+    // const [startTime, setStartTime] = React.useState<Date | null>(null);
+    // const [endTime, setEndTime] = React.useState<Date | null>(null);
+    // const [note, setNote] = React.useState<number | null>(0);
+    // const [selectedHiking, setSelectedHiking] = React.useState({} as Ihiking);
 
 
-    const handleChangeDifficulty = (e: any) => {
-        setDifficulty(e.currentTarget.value)
-    }
+    // const handleChangeDifficulty = (e: any) => {
+    //     setDifficulty(e.currentTarget.value)
+    // }
 
-    const handleChangeCountry = (e: any) => {
-        const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
-        setCountry(selectedCountry);
-    }
+    // const handleChangeCountry = (e: any) => {
+    //     const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
+    //     setCountry(selectedCountry);
+    // }
 
     return (
         <Layout filters={false}>
@@ -110,12 +120,13 @@ export default function AddHiking() {
                         return errors;
                     }}
                     onSubmit={(values, { setSubmitting }) => {
+                        console.log(values)
                         setTimeout(() => {
-                            setSubmitting(false);
+
                         }, 1000);
                     }}
                 >
-                    {({ values }) =>
+                    {({ values, setFieldValue }) =>
                         <Form>
                             <Row className="mt-2 m-0">
                                 <Col md={6}>
@@ -131,7 +142,7 @@ export default function AddHiking() {
                                                     type="text"
                                                     component="input"
                                                     onChange={(event) => {
-
+                                                        setFieldValue('name', event.currentTarget.value);
                                                     }}
                                                 />
                                             </FormGroup>
@@ -142,7 +153,7 @@ export default function AddHiking() {
                                                 type="select"
                                                 value={values?.difficulty}
                                                 onChange={(event) => {
-                                                    console.log(event.currentTarget.value);
+                                                    setFieldValue('difficulty', event.currentTarget.value);
                                                 }}
                                             >
                                                 <option value="">Choisir</option>
@@ -169,7 +180,7 @@ export default function AddHiking() {
                                                     type="select"
                                                     component="input"
                                                     onChange={(event) => {
-
+                                                        setFieldValue('country', event.currentTarget.value);
                                                     }}
                                                 >
                                                     {countries.map((country: any) => (
@@ -186,6 +197,9 @@ export default function AddHiking() {
                                                 value={values?.city}
                                                 type="text"
                                                 component="input"
+                                                onChange={(event) => {
+                                                    setFieldValue('city', event.currentTarget.value);
+                                                }}
                                             />
                                         </Col>
                                     </Row>
@@ -211,7 +225,7 @@ export default function AddHiking() {
                                                             )
                                                         }
                                                         onChange={(val) => {
-                                                            console.log(val)
+                                                            setFieldValue('startDate', val);
                                                         }}
                                                     />
                                                 </div>
@@ -220,9 +234,12 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <label>Heure de départ</label>
                                             <Input
-                                                value={values?.difficulty}
+                                                value={values?.startTime}
                                                 type="text"
                                                 component="input"
+                                                onChange={(event) => {
+                                                    setFieldValue('startTime', event.currentTarget.value);
+                                                }}
                                             />
                                         </Col>
                                     </Row>
@@ -240,7 +257,7 @@ export default function AddHiking() {
                                                             )
                                                         }
                                                         onChange={(val) => {
-                                                            console.log(val)
+                                                            setFieldValue('endDate', val);
                                                         }}
                                                     />
                                                 </div>
@@ -249,9 +266,12 @@ export default function AddHiking() {
                                         <Col md={6}>
                                             <label>Heure d'arrivée</label>
                                             <Input
-                                                value={values?.difficulty}
+                                                value={values?.endTime}
                                                 type="text"
                                                 component="input"
+                                                onChange={(event) => {
+                                                    setFieldValue('endTime', event.currentTarget.value);
+                                                }}
                                             />
                                         </Col>
                                     </Row>
@@ -264,15 +284,20 @@ export default function AddHiking() {
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
-                                                <Label>Distance</Label>
-                                                <Input
-                                                    value={values?.distance}
-                                                    type="text"
-                                                    component="input"
-                                                    onChange={(event) => {
-
-                                                    }}
-                                                />
+                                            <Label>Distance</Label>
+                                                <InputGroup>
+                                                    <Input
+                                                        value={values?.distance}
+                                                        type="text"
+                                                        component="input"
+                                                        onChange={(event) => {
+                                                            setFieldValue('distance', event.currentTarget.value);
+                                                        }}
+                                                    />
+                                                    <InputGroupAddon addonType="append">
+                                                        <InputGroupText>km</InputGroupText>
+                                                    </InputGroupAddon>
+                                                </InputGroup>
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -282,6 +307,9 @@ export default function AddHiking() {
                                                     value={values?.den}
                                                     type="text"
                                                     component="input"
+                                                    onChange={(event) => {
+                                                        setFieldValue('den', event.currentTarget.value);
+                                                    }}
                                                 />
                                             </FormGroup>
                                         </Col>
@@ -320,6 +348,7 @@ export default function AddHiking() {
                                         value={values?.note}
                                         onChange={(event, newValue) => {
                                             console.log(newValue);
+                                            setFieldValue('note', newValue);
                                         }}
                                         getLabelText={(value: number) => customIcons[value].label}
                                         IconContainerComponent={IconContainer}
