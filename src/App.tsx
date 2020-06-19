@@ -10,6 +10,7 @@ import SignUp from './pages/signup';
 import SignupSuccess from './pages/signup/signupSuccess';
 import Hikings from './pages/hikings';
 import HikingDetails from './pages/hikings/hikingDetails';
+import HikingAdd from './pages/hikings/hikingsAdd';
 import Terms from './pages/terms';
 import Confidentiality from './pages/confidentiality';
 import { jwtExist } from './services/oauth';
@@ -19,16 +20,17 @@ const Routes = () => {
   const isLogged = jwtExist();
 
   const routes = [
-    { path: '/', component: Home, isPublic: true, visibleWithToken: false },
-    { path: '/dashboard', component: Dashboard, isPublic: false, visibleWithToken: true },
-    { path: '/hikings', component: Hikings, isPublic: true, visibleWithToken: true },
-    { path: '/hikings/:id', component: HikingDetails, isPublic: true, visibleWithToken: true },
-    { path: '/terms', component: Terms, isPublic: true, visibleWithToken: true },
-    { path: '/confidentiality', component: Confidentiality, isPublic: true, visibleWithToken: true },
-    { path: '/signup', component: SignUp, isPublic: true, visibleWithToken: false },
-    { path: '/signup/success', component: SignupSuccess, isPublic: true, visibleWithToken: false },
-    { path: '/signin', component: SignIn, isPublic: true, visibleWithToken: false },
-    { path: '/forgot-password', component: ForgotPassword, isPublic: true, visibleWithToken: false },
+    { path: '/', component: Home, isPublic: true, visibleWithToken: false, exact: true },
+    { path: '/dashboard', component: Dashboard, isPublic: false, visibleWithToken: true, exact: true },
+    { path: '/hikings', component: Hikings, isPublic: true, visibleWithToken: true, exact: true },
+    { path: '/hikings/:id', component: HikingDetails, isPublic: true, visibleWithToken: true, exact: false },
+    { path: '/hiking/add', component: HikingAdd, isPublic: true, visibleWithToken: true, exact: true },
+    { path: '/terms', component: Terms, isPublic: true, visibleWithToken: true, exact: true },
+    { path: '/confidentiality', component: Confidentiality, isPublic: true, visibleWithToken: true, exact: true },
+    { path: '/signup', component: SignUp, isPublic: true, visibleWithToken: false, exact: true },
+    { path: '/signup/success', component: SignupSuccess, isPublic: true, visibleWithToken: false, exact: true },
+    { path: '/signin', component: SignIn, isPublic: true, visibleWithToken: false, exact: true },
+    { path: '/forgot-password', component: ForgotPassword, isPublic: true, visibleWithToken: false, exact: true },
   ]
 
   return (<Switch>
@@ -38,14 +40,16 @@ const Routes = () => {
           {
           routes.map((route) => {
             if (route.isPublic && !route.visibleWithToken) {
-              return <Route key={route.path} path={route.path}>
+              return <Route key={route.path} exact path={route.path}>
                 {() => {
                   if(route.path === window.location.pathname){
                     return <Redirect to="/dashboard"/>
                   }}}
                 </Route>
             }else {
-              return <Route key={route.path} path={route.path} exact component={route.component} />
+              return route?.exact ? 
+              <Route key={route.path} path={route.path} exact component={route.component} /> :
+              <Route key={route.path} path={route.path} component={route.component} /> 
             }
           })}
           <Redirect to="/dashboard"/>
@@ -55,7 +59,7 @@ const Routes = () => {
           {
             routes.map(route => {
               if (route.visibleWithToken && !route.isPublic) {
-                return <Route key={route.path} path={route.path}>
+                return <Route key={route.path} exact path={route.path}>
                   {() => {
                   if(route.path === window.location.pathname){
                     return <Redirect to="/"/>
