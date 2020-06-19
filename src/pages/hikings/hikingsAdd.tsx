@@ -80,7 +80,7 @@ export default function AddHiking() {
         distance: '',
         den: '',
         note: 1,
-        images: []
+        images: ''
     }
 
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
@@ -346,9 +346,14 @@ export default function AddHiking() {
                                                     value={values?.images}
                                                     type="file"
                                                     component="input"
-                                                    multiple
+                                                    // multiple
                                                     onChange={(event: any) => {
                                                         const files = Array.from(event.target.files)
+                                                        const reader = new FileReader(); 
+                                                        reader.readAsDataURL(files[0] as Blob);
+                                                        reader.onload = function(upload: any) {
+                                                            setFieldValue('image', upload?.target?.result);
+                                                        };                                                 
                                                     }}
                                                 />
                                             </FormGroup>
