@@ -7,6 +7,43 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from '../../services/date';
 import getCountries from '../../services/countries';
+import Rating, { IconContainerProps } from "@material-ui/lab/Rating";
+import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAltOutlined";
+import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
+
+
+const customIcons: {
+    [index: string]: { icon: React.ReactElement; label: string };
+} = {
+    1: {
+        icon: <SentimentVeryDissatisfiedIcon />,
+        label: "Very Dissatisfied",
+    },
+    2: {
+        icon: <SentimentDissatisfiedIcon />,
+        label: "Dissatisfied",
+    },
+    3: {
+        icon: <SentimentSatisfiedIcon />,
+        label: "Neutral",
+    },
+    4: {
+        icon: <SentimentSatisfiedAltIcon />,
+        label: "Satisfied",
+    },
+    5: {
+        icon: <SentimentVerySatisfiedIcon />,
+        label: "Very Satisfied",
+    },
+};
+
+function IconContainer(props: IconContainerProps) {
+    const { value, ...other } = props;
+    return <span {...other}>{customIcons[value].icon}</span>;
+  }
 
 export default function AddHiking() {
 
@@ -41,7 +78,8 @@ export default function AddHiking() {
         endDate: new Date(Date.now()).toString(),
         endTime: '',
         distance: '',
-        den: ''
+        den: '',
+        note: 1
     }
 
     const difficulties: Array<string> = ["facile", "moyenne", "difficile"];
@@ -275,6 +313,17 @@ export default function AddHiking() {
                             <Row className="mt-2 m-0">
                                 <Col md={12}>
                                     <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
+                                </Col>
+                                <Col md={12}>
+                                    <Rating
+                                        name="customized-icons"
+                                        value={values?.note}
+                                        onChange={(event, newValue) => {
+                                            console.log(newValue);
+                                        }}
+                                        getLabelText={(value: number) => customIcons[value].label}
+                                        IconContainerComponent={IconContainer}
+                                    />
                                 </Col>
                             </Row>
 
