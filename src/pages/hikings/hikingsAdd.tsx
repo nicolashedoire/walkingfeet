@@ -132,11 +132,11 @@ export default function AddHiking() {
                                 </Col>
                             </Row>
 
-                            <Row className="mt-2 m-0">
+                            <Row className="m-0">
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Temporalité</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Temporalité</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -200,7 +200,7 @@ export default function AddHiking() {
                                 <Col md={6}>
                                     <Row>
                                         <Col md="12">
-                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3 mt-4`}>Caractéristiques</h2>
+                                            <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Caractéristiques</h2>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -224,6 +224,12 @@ export default function AddHiking() {
                                             />
                                         </Col>
                                     </Row>
+                                </Col>
+                            </Row>
+
+                            <Row className="mt-2 m-0">
+                                <Col md={12}>
+                                <h2 className={`${styles.tagTitle} p-0 m-0 mb-3`}>Note globale</h2>
                                 </Col>
                             </Row>
 
