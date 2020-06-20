@@ -10,6 +10,11 @@ export default function Search() {
 
     return (
         <Layout filters={true}>
+            <div className="mt-4">
+            <NavLink to="/hiking/add">
+            <Button className="mr-4" color="primary">Ajouter une randonnée</Button>
+            </NavLink>
+            </div>
             <div className={`${styles.search} mt-4`}>
                 {
                     hikings.map((hiking) => {
