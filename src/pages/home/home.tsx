@@ -14,7 +14,7 @@ export default function Home() {
       <header className={styles.header}>
         <Navbar />
         <NavLink to="/">
-          <h1>Walkin' Feet test</h1>
+          <h1>Walkin' Feet</h1>
         </NavLink>
         {/* <p className={styles.intro}>
           <span className="walkingfeet">Walking feet</span> est une plateforme
