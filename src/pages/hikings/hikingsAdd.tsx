@@ -348,12 +348,19 @@ export default function AddHiking() {
                                                     component="input"
                                                     // multiple
                                                     onChange={(event: any) => {
-                                                        const files = Array.from(event.target.files)
+                                                        const files: Array<any> = Array.from(event.target.files);
                                                         const reader = new FileReader(); 
-                                                        reader.readAsDataURL(files[0] as Blob);
+                                                        reader.readAsDataURL(files[0]);
                                                         reader.onload = function(upload: any) {
                                                             setFieldValue('image', upload?.target?.result);
-                                                        };                                                 
+                                                        };
+                                                        
+                                                        const data = new FormData();
+                                                        const fileName: string = files[0].name;
+                                                        data.append('file', files[0]);
+                                                        console.log(fileName);
+                                                        data.append('filename', fileName);
+                                                    
                                                     }}
                                                 />
                                             </FormGroup>

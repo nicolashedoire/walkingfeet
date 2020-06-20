@@ -25,7 +25,7 @@ export default function Home() {
         </p> */}
         <div className={styles.searchContainer}>
           <FormGroup>
-            <input className={styles.formcadre} placeholder="Quelle randonnée cherchez-vous?" />
+            <input className={styles.formcadre} placeholder="Quelle ville ?" />
             <NavLink to="/hikings">
               <Button className={styles.headerButton}>C'est parti</Button>
             </NavLink>
