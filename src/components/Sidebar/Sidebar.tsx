@@ -34,7 +34,7 @@ const Sidebar = (props: any) => {
   }
 
   const searchWithParams = () => {
-    history.push(`/hikings?city=${city}&country=${country.key}&difficulty=${difficulty}`)
+    history.push(`/hikings?city=${city}&country=${country.value}&difficulty=${difficulty}`)
   }
 
   return (<div className={`col-md-2 d-none d-md-block bg-light ${styles.root}`}>

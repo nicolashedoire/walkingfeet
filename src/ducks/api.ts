@@ -12,6 +12,12 @@ export const getCitiesApi = async (
   );
 }
 
+export const getHikingsApi = async (city : string, country: string, difficulty: string) => {
+  return await axios.get(
+    `/hikings?city=${city}&country=${country}&difficulty=${difficulty}`
+  );
+}
+
 export const signup = async (
     email: string,
     password: string,
