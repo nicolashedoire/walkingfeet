@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import citySlice, {
   getCitiesAction,
   getCitiesData
@@ -12,18 +13,20 @@ import { faFacebook, faLinkedin, faTwitter, faGithub } from '@fortawesome/free-b
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { Icity } from '../../types';
-import Card from "../../components/Card";
 
 export default function Home() {
-
   const cities = useSelector(getCitiesData);
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const [city, setCity] = useState<string>('');
 
   const resetCities = () => {
     setCity('');
     dispatch(citySlice.actions.cleanCities());
+  }
+
+  const redirectOnSearch = (city: Icity) => {
+    history.push(`/hikings?city=${city.name}`)
   }
 
   useEffect(() => {
@@ -41,7 +44,7 @@ export default function Home() {
         </NavLink>
         <div className={styles.searchContainer}>
           <FormGroup>
-            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={(event) => setCity(event.currentTarget.value)} onBlur={resetCities}/>
+            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={(event) => setCity(event.currentTarget.value)}/>
             <NavLink to="/hikings">
               <Button className={styles.headerButton}>C'est parti</Button>
             </NavLink>
@@ -50,7 +53,7 @@ export default function Home() {
             cities && cities.length > 0 ?
             <ul className={styles.cities}>
             {
-              cities.map((city: Icity) => <li key={city._id}>
+              cities.map((city: Icity) => <li key={city._id} onClick={() => redirectOnSearch(city)}>
                 <span>{city.name}</span> 
                 <span className={styles.country}>{city.country}</span>
               </li>)
@@ -61,9 +64,7 @@ export default function Home() {
             </ul> : null
           }
         </div>
-
       </header>
-
       <Row className="mt-4 m-2">
         <Col md={4}>
           <div className={styles.flexCenter}>
@@ -162,7 +163,6 @@ export default function Home() {
           </Col>
         </Row>
       </div>*/}
-
       <footer className={styles.footer}>
         <Row className="mt-4 m-2">
           <Col md={3}>
