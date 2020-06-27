@@ -22,14 +22,6 @@ export default function SignIn(props: any) {
    const signinStatus: ISignIn = useSelector(getSigninStatus);
    const isLogged: string = useSelector(getJwt);
 
-   if(isLogged) {
-      <Redirect to="/"/>
-   }
-
-   useEffect(() => {
-
-   }, [dispatch, history]);
-
    const [email, setEmail] = useState<string>('');
    const [password, setPassword] = useState<string>('');
    const [errors, setErrors] = useState<Ioauth>({
@@ -37,6 +29,13 @@ export default function SignIn(props: any) {
       password: undefined
    });
    const [isLoading, setIsloading] = React.useState(false);
+
+
+   if(isLogged) {
+      return <Redirect from={'/'}
+      to={'/dashboard'}
+      exact/>
+   }
 
    const onGoogleClick = () => {
       setIsloading(true);
