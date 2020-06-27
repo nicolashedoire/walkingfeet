@@ -45,9 +45,6 @@ export default function Home() {
         <div className={styles.searchContainer}>
           <FormGroup>
             <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={(event) => setCity(event.currentTarget.value)}/>
-            <NavLink to="/hikings">
-              <Button className={styles.headerButton}>C'est parti</Button>
-            </NavLink>
           </FormGroup>
           {
             cities && cities.length > 0 ?
