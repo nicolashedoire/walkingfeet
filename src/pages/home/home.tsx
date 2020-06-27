@@ -44,11 +44,17 @@ export default function Home() {
               <Button className={styles.headerButton}>C'est parti</Button>
             </NavLink>
           </FormGroup>
-          <ul className={styles.cities}>
+          {
+            cities && cities.length > 0 ?
+            <ul className={styles.cities}>
             {
-              cities && cities.map((city: Icity) => <li key={city._id}>{city.name}</li>)
+              cities.map((city: Icity) => <li key={city._id}>
+                <span>{city.name}</span> 
+                <span className={styles.country}>{city.country}</span>
+              </li>)
             }
-          </ul>
+          </ul> : null 
+          }
         </div>
 
       </header>
