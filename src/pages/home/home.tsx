@@ -26,7 +26,7 @@ export default function Home() {
   }
 
   const redirectOnSearch = (city: Icity) => {
-    history.push(`/hikings?city=${city.name}`)
+    history.push(`/hikings?city=${city.name}&country=${city.country}`)
   }
 
   useEffect(() => {

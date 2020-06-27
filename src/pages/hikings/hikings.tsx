@@ -11,9 +11,10 @@ export default function Search(props: any) {
     const search = props.location.search;
     let params = new URLSearchParams(search);
     let city = params.get('city');
+    let country = params.get('country');
 
     return (
-        <Layout filters={true} city={city}>
+        <Layout filters={true} city={city} country={country}>
             <div className="mt-4">
                 <NavLink to="/hiking/add">
                     <Button className="mr-4" color="primary">Ajouter une randonnée</Button>

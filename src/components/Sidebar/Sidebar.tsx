@@ -4,6 +4,7 @@ import { Input, Button } from 'reactstrap';
 import styles from './Sidebar.module.scss';
 import getCountries from '../../services/countries';
 import { NavLink, useHistory } from 'react-router-dom';
+import { countries } from '../../config/data';
 
 const Sidebar = (props: any) => {
   const history = useHistory();
@@ -18,7 +19,9 @@ const Sidebar = (props: any) => {
   }];
 
   const [difficulty, setDifficulty] = React.useState(difficulties[0].value);
-  const [country, setCountry] = React.useState({key: 'FR', value: 'France'});
+  const [country, setCountry] = React.useState(props?.country ?
+    countries.find((country: any) => country.value === props.country) :
+    { key: 'FR', value: 'France' });
   const [city, setCity] = React.useState(props?.city ? props.city : '');
 
   const handleChangeDifficulty = (e: any) => {
@@ -28,7 +31,7 @@ const Sidebar = (props: any) => {
   const handleChangeCountry = (e: any) => {
     const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
     setCountry(selectedCountry);
-  } 
+  }
 
   const searchWithParams = () => {
     history.push(`/hikings?city=${city}&country=${country.key}&difficulty=${difficulty}`)
@@ -37,7 +40,7 @@ const Sidebar = (props: any) => {
   return (<div className={`col-md-2 d-none d-md-block bg-light ${styles.root}`}>
     <div className={`${styles.sticky} mt-3`}>
       <Nav vertical>
-        
+
         <label>Difficulté</label>
         <Input
           type="select"
@@ -59,7 +62,7 @@ const Sidebar = (props: any) => {
           value={country.key}
           onChange={handleChangeCountry}
         >
-          {countries.map((country : any) => (
+          {countries.map((country: any) => (
             <option key={country.key} value={country.key}>
               {country.value}
             </option>
@@ -72,7 +75,7 @@ const Sidebar = (props: any) => {
           onChange={(e) => setCity(e.currentTarget.value)}
         />
         <div className="mt-4">
-        <Button onClick={searchWithParams}>Rechercher</Button>
+          <Button onClick={searchWithParams}>Rechercher</Button>
         </div>
       </Nav>
     </div>
