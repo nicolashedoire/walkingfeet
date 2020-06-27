@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getCitiesAction,
+  getCitiesData
+} from '../../ducks/city';
 import Navbar from "../../components/Navbar";
 import { Button } from "reactstrap";
 import { FormGroup, Label, Input, Row, Col } from "reactstrap";
@@ -6,9 +11,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
+import { Icity } from '../../types';
 import Card from "../../components/Card";
 
 export default function Home() {
+
+  const cities = useSelector(getCitiesData);
+
+  const dispatch = useDispatch();
+  const [city, setCity] = useState<string>('');
+
+  const getCities = (event: any) => {
+    setCity(event.currentTarget.value);
+    dispatch(getCitiesAction(event.currentTarget.value));
+  }
+
+  useEffect(() => {
+    console.log(cities)
+  }, [city]);
+
   return (
     <div className="App">
       <header className={styles.header}>
@@ -16,20 +37,18 @@ export default function Home() {
         <NavLink to="/">
           <h1>Walkin' Feet</h1>
         </NavLink>
-        {/* <p className={styles.intro}>
-          <span className="walkingfeet">Walking feet</span> est une plateforme
-          communautaire gratuite vous proposant des balades et randonnées
-          partout dans le monde. Il n’est pas toujours évident de trouver des
-          informations sur le net. Quoi de mieux qu’un site qui les regroupe
-          pour vous!
-        </p> */}
         <div className={styles.searchContainer}>
           <FormGroup>
-            <input className={styles.formcadre} placeholder="Quelle ville ?" />
+            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={getCities}/>
             <NavLink to="/hikings">
               <Button className={styles.headerButton}>C'est parti</Button>
             </NavLink>
           </FormGroup>
+          <ul className={styles.cities}>
+            {
+              cities && cities.map((city: Icity) => <li key={city._id}>{city.name}</li>)
+            }
+          </ul>
         </div>
 
       </header>

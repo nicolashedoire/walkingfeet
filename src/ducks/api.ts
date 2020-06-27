@@ -4,6 +4,14 @@ import axios from '../config/axios';
 //     api_key: process.env.REACT_APP_API_KEY,
 // };
 
+export const getCitiesApi = async (
+  name : string
+) => {
+  return await axios.get(
+    `/cities?name=${name}`
+  );
+}
+
 export const signup = async (
     email: string,
     password: string,

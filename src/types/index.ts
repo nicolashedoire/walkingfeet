@@ -21,3 +21,9 @@ export interface IgoogleProfile {
    imageUrl: string;
    name: string;
 }
+
+export interface Icity {
+   _id: string;
+   name: string;
+   country: string;
+}
