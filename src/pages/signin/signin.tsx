@@ -23,7 +23,7 @@ export default function SignIn(props: any) {
    const isLogged: string = useSelector(getJwt);
 
    if(isLogged) {
-      window.location.href = '/dashboard';
+      window.location.href = '/';
    }
 
    useEffect(() => {
