@@ -21,18 +21,15 @@ export default function Home() {
   const dispatch = useDispatch();
   const [city, setCity] = useState<string>('');
 
-  const getCities = (event: any) => {
-    setCity(event.currentTarget.value);
-    dispatch(getCitiesAction(event.currentTarget.value));
-  }
-
   const resetCities = () => {
     setCity('');
     dispatch(citySlice.actions.cleanCities());
   }
 
   useEffect(() => {
-    console.log(cities)
+    city.length >= 3 ?
+    dispatch(getCitiesAction(city)) :
+    dispatch(citySlice.actions.cleanCities());
   }, [city]);
 
   return (
@@ -44,24 +41,24 @@ export default function Home() {
         </NavLink>
         <div className={styles.searchContainer}>
           <FormGroup>
-            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={getCities} onBlur={resetCities} />
+            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={(event) => setCity(event.currentTarget.value)} onBlur={resetCities}/>
             <NavLink to="/hikings">
               <Button className={styles.headerButton}>C'est parti</Button>
             </NavLink>
           </FormGroup>
           {
             cities && cities.length > 0 ?
-              <ul className={styles.cities}>
-                {
-                  cities.map((city: Icity) => <li key={city._id}>
-                    <span>{city.name}</span>
-                    <span className={styles.country}>{city.country}</span>
-                  </li>)
-                }
-              </ul> : cities && cities.length === 0 && city.length >= 3 ?
-                <ul className={styles.cities}>
-                  <li><span>Aucun résultat</span></li>
-                </ul> : null
+            <ul className={styles.cities}>
+            {
+              cities.map((city: Icity) => <li key={city._id}>
+                <span>{city.name}</span> 
+                <span className={styles.country}>{city.country}</span>
+              </li>)
+            }
+          </ul> : cities && cities.length === 0 && city.length >= 3 ?
+            <ul className={styles.cities}>
+              <li><span>Aucun résultat</span></li>
+            </ul> : null
           }
         </div>
 
