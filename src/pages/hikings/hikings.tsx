@@ -4,16 +4,20 @@ import Card from '../../components/Card';
 import styles from './styles.module.scss';
 import { Button } from 'reactstrap';
 import { hikings } from '../../config/data';
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
-export default function Search() {
+export default function Search(props: any) {
+
+    const search = props.location.search;
+    let params = new URLSearchParams(search);
+    let city = params.get('city');
 
     return (
-        <Layout filters={true}>
+        <Layout filters={true} city={city}>
             <div className="mt-4">
-            <NavLink to="/hiking/add">
-            <Button className="mr-4" color="primary">Ajouter une randonnée</Button>
-            </NavLink>
+                <NavLink to="/hiking/add">
+                    <Button className="mr-4" color="primary">Ajouter une randonnée</Button>
+                </NavLink>
             </div>
             <div className={`${styles.search} mt-4`}>
                 {

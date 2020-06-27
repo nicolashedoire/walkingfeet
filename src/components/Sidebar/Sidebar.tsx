@@ -5,8 +5,8 @@ import styles from './Sidebar.module.scss';
 import getCountries from '../../services/countries';
 import { NavLink, useHistory } from 'react-router-dom';
 
-const Sidebar: React.FC = () => {
-
+const Sidebar = (props: any) => {
+  const history = useHistory();
   const countries = getCountries();
 
   const difficulties = [{
@@ -18,7 +18,8 @@ const Sidebar: React.FC = () => {
   }];
 
   const [difficulty, setDifficulty] = React.useState(difficulties[0].value);
-  const [country, setCountry] = React.useState({key: 'FR', value: 'France'})
+  const [country, setCountry] = React.useState({key: 'FR', value: 'France'});
+  const [city, setCity] = React.useState(props?.city ? props.city : '');
 
   const handleChangeDifficulty = (e: any) => {
     setDifficulty(e.currentTarget.value)
@@ -28,6 +29,10 @@ const Sidebar: React.FC = () => {
     const selectedCountry = countries.find((country: any) => country.key === e.currentTarget.value);
     setCountry(selectedCountry);
   } 
+
+  const searchWithParams = () => {
+    history.push(`/hikings?city=${city}&country=${country.key}&difficulty=${difficulty}`)
+  }
 
   return (<div className={`col-md-2 d-none d-md-block bg-light ${styles.root}`}>
     <div className={`${styles.sticky} mt-3`}>
@@ -63,12 +68,12 @@ const Sidebar: React.FC = () => {
         <label className="mt-2">Ville</label>
         <Input
           type="text"
-          value={""}
-          onChange={handleChangeCountry}
+          value={city}
+          onChange={(e) => setCity(e.currentTarget.value)}
         />
-        <NavLink to='/hikings' className="mt-4">
-          <Button>Rechercher</Button>
-        </NavLink>
+        <div className="mt-4">
+        <Button onClick={searchWithParams}>Rechercher</Button>
+        </div>
       </Nav>
     </div>
   </div>);
