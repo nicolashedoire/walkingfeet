@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 import { Form, FormGroup, Input } from 'reactstrap';
 import { Alert } from 'reactstrap';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import OauthSlice, {
    signinAction,
@@ -23,7 +23,7 @@ export default function SignIn(props: any) {
    const isLogged: string = useSelector(getJwt);
 
    if(isLogged) {
-      history.push('/');
+      <Redirect to="/"/>
    }
 
    useEffect(() => {
