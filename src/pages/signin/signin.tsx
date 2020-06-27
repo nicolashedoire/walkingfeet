@@ -32,9 +32,7 @@ export default function SignIn(props: any) {
 
 
    if(isLogged) {
-      return <Redirect from={'/'}
-      to={'/dashboard'}
-      exact/>
+      window.location.href = '/';
    }
 
    const onGoogleClick = () => {
