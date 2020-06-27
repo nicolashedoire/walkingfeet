@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import {
+import citySlice, {
   getCitiesAction,
   getCitiesData
 } from '../../ducks/city';
@@ -26,6 +26,11 @@ export default function Home() {
     dispatch(getCitiesAction(event.currentTarget.value));
   }
 
+  const resetCities = () => {
+    setCity('');
+    dispatch(citySlice.actions.cleanCities());
+  }
+
   useEffect(() => {
     console.log(cities)
   }, [city]);
@@ -39,7 +44,7 @@ export default function Home() {
         </NavLink>
         <div className={styles.searchContainer}>
           <FormGroup>
-            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={getCities}/>
+            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={getCities} onBlur={resetCities}/>
             <NavLink to="/hikings">
               <Button className={styles.headerButton}>C'est parti</Button>
             </NavLink>

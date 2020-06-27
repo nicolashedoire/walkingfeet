@@ -46,6 +46,9 @@ export default createSlice({
   name: 'signup',
   initialState,
   reducers: {
+    cleanCities: (state) => {
+      state.entities.cities = []
+    },
   },
   extraReducers: {
     [getCitiesAction.pending.type]: (state) => {
