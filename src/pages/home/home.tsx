@@ -31,14 +31,18 @@ export default function Home() {
   }
 
   const searchCity = (event: any) => {
-    alert('search city')
     setCity(event.target.value);
-    getCitiesApi(event.target.value).then((res) => {
-      alert('API call')
-      setCities(res.data);
-    }).catch(error => {
-      alert(error);
-  })
+    fetch(`/cities?name=${event.target.value}`)
+    .then(response => response.json())
+.then(response => alert(JSON.stringify(response)))
+.catch(error => alert("Erreur : " + error));
+
+  //   getCitiesApi(event.target.value).then((res) => {
+  //     alert('API call')
+  //     setCities(res.data);
+  //   }).catch(error => {
+  //     alert(error);
+  // })
   };
 
   useEffect(() => {}, [dispatch, city])
