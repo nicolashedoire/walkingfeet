@@ -39,10 +39,10 @@ export default function Search(props: any) {
                         return (
                             <Card key={hiking._id}>
                                 <img src="/images/header2.jpg" width="250" alt="randonnée" title="randonnée" />
-                                <h4 className="mt-4"><b>{hiking.title}</b></h4>
-                                <p>{hiking.description}</p>
+                                <h4 className="mt-4"><b>{hiking.name}</b></h4>
+                                <p>{hiking.distance} km</p>
                                 <NavLink to={`/hikings/${hiking._id}`} >
-                                    <Button className="mr-4" color="primary">Voir plus</Button>
+                                    <Button color="primary">Voir plus</Button>
                                 </NavLink>
                             </Card>
                         )
