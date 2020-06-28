@@ -29,11 +29,15 @@ export default function Home() {
     history.push(`/hikings?city=${city.name}&country=${city.country}&difficulty=Facile`)
   }
 
-  useEffect(() => {
-    city.length >= 3 ?
-    dispatch(getCitiesAction(city)) :
-    dispatch(citySlice.actions.cleanCities());
-  }, [city]);
+  const searchCity = (event: any) => {
+    console.log(event.currentTarget.value);
+    setCity(event.target.value);
+    if(event.target.value.length >= 3){
+       dispatch(getCitiesAction(event.target.value));
+    }else {
+       dispatch(citySlice.actions.cleanCities());
+    }
+  };
 
   return (
     <div className="App">
@@ -44,7 +48,7 @@ export default function Home() {
         </NavLink>
         <div className={styles.searchContainer}>
           <FormGroup>
-            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={(event) => setCity(event.currentTarget.value)}/>
+            <input className={styles.formcadre} placeholder="Quelle ville ?" value={city} onChange={(event) => searchCity(event)}/>
           </FormGroup>
           {
             cities && cities.length > 0 ?
