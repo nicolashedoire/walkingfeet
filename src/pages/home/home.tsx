@@ -13,12 +13,13 @@ import { faFacebook, faLinkedin, faTwitter, faGithub } from '@fortawesome/free-b
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { Icity } from '../../types';
+import { getCitiesApi } from '../../ducks/api';
 
 export default function Home() {
-  const cities = useSelector(getCitiesData);
   const history = useHistory();
   const dispatch = useDispatch();
   const [city, setCity] = useState<string>('');
+  const [cities, setCities] = useState([]);
 
   const resetCities = () => {
     setCity('');
@@ -31,7 +32,9 @@ export default function Home() {
 
   const searchCity = (event: any) => {
     setCity(event.target.value);
-    dispatch(getCitiesAction(event.target.value));
+    getCitiesApi(event.target.value).then((res) => {
+      setCities(res.data);
+    })
   };
 
   useEffect(() => {}, [dispatch, city])

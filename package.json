@@ -23,6 +23,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/reactstrap": "^8.4.2",
+    "@types/webpack-env": "^1.15.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "formik": "^2.1.4",
