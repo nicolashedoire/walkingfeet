@@ -34,6 +34,8 @@ export default function Home() {
     dispatch(getCitiesAction(event.target.value));
   };
 
+  useEffect(() => {}, [dispatch, city])
+
   return (
     <div className="App">
       <header className={styles.header}>
