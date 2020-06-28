@@ -30,13 +30,8 @@ export default function Home() {
   }
 
   const searchCity = (event: any) => {
-    console.log(event.currentTarget.value);
     setCity(event.target.value);
-    if(event.target.value.length >= 3){
-       dispatch(getCitiesAction(event.target.value));
-    }else {
-       dispatch(citySlice.actions.cleanCities());
-    }
+    dispatch(getCitiesAction(event.target.value));
   };
 
   return (

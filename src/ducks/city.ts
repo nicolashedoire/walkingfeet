@@ -9,6 +9,7 @@ export const getCitiesAction = createAsyncThunk(
     const result = await getCitiesApi(
       name,
     );
+    alert(result.data)
     return result.data;
   }
 );
