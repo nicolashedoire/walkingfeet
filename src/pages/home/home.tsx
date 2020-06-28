@@ -32,17 +32,12 @@ export default function Home() {
 
   const searchCity = (event: any) => {
     setCity(event.target.value);
-    fetch(`${process.env.REACT_APP_API_PATH}/cities?name=${event.target.value}`)
-    .then(response => response.json())
-.then(response => alert(JSON.stringify(response)))
-.catch(error => alert("Erreur : " + error));
-
-  //   getCitiesApi(event.target.value).then((res) => {
-  //     alert('API call')
-  //     setCities(res.data);
-  //   }).catch(error => {
-  //     alert(error);
-  // })
+    getCitiesApi(event.target.value).then((res) => {
+      alert('API call')
+      setCities(res.data);
+    }).catch(error => {
+      alert(error.response.data);
+  })
   };
 
   useEffect(() => {}, [dispatch, city])
