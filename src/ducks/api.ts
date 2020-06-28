@@ -4,10 +4,10 @@ import axios from '../config/axios';
 //     api_key: process.env.REACT_APP_API_KEY,
 // };
 
-export const getCitiesApi = async (
+export const getCitiesApi = (
   name : string
 ) => {
-  return await axios.get(
+  return axios.get(
     `/cities?name=${name}`
   );
 }
