@@ -33,6 +33,7 @@ export default function Home() {
   const searchCity = (event: any) => {
     setCity(event.target.value);
     getCitiesApi(event.target.value).then((res) => {
+      alert(res.data)
       setCities(res.data);
     })
   };
