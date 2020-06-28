@@ -3,14 +3,12 @@ import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import styles from './styles.module.scss';
 import { Button } from 'reactstrap';
-import { hikings } from '../../config/data';
 import { NavLink} from 'react-router-dom';
-import citySlice, {
+import hikingsSlice, {
     getHikingsAction,
     getHikingsData,
   } from '../../ducks/hiking';
   import { useDispatch, useSelector } from 'react-redux';
-  import { useHistory } from 'react-router-dom';
 
 export default function Search(props: any) {
     const hikings = useSelector(getHikingsData);

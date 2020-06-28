@@ -18,6 +18,12 @@ export const getHikingsApi = async (city : string, country: string, difficulty: 
   );
 }
 
+export const getHikingByIdApi = async (id: string) => {
+  return await axios.get(
+    `/hikings/${id}`
+  );
+}
+
 export const signup = async (
     email: string,
     password: string,

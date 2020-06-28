@@ -43,7 +43,7 @@ export const getJwt = (state: any): any =>
 
 // Slice
 export default createSlice({
-  name: 'signup',
+  name: 'cities',
   initialState,
   reducers: {
     cleanCities: (state) => {
