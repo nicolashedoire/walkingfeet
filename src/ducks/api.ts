@@ -9,7 +9,7 @@ export const getCitiesApi = (
 ) => {
   return axios.get(
     `/cities?name=${name}`
-  );
+  )
 }
 
 export const getHikingsApi = async (city : string, country: string, difficulty: string) => {

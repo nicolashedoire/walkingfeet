@@ -36,7 +36,9 @@ export default function Home() {
     getCitiesApi(event.target.value).then((res) => {
       alert('API call')
       setCities(res.data);
-    })
+    }).catch(error => {
+      alert(error);
+  })
   };
 
   useEffect(() => {}, [dispatch, city])
