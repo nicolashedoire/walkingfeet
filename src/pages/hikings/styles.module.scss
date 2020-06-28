@@ -5,6 +5,11 @@
     grid-template-columns: 30% 30% 30%;
 }
 
+.hikingDetails {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 .hikingAdd {
     h1 {
         font-size: 1.2em;

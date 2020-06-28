@@ -14,6 +14,7 @@ import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied"
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAltOutlined";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
+import styles from './styles.module.scss'
 
 
 const customIcons: {
@@ -60,29 +61,34 @@ export default function HikingDetails() {
 
     return (
         <Layout filters={false}>
-            <div className="mt-4">
-                <Button onClick={() => history.push('/hikings')}>Retour</Button>
-                {
-                    hiking ? <div className="mt-4">
-                        <h1><span className="mr-4">{hiking.name}</span>
-                            <Rating
-                                name="customized-icons"
-                                value={hiking?.note}
-                                getLabelText={(value: number) => customIcons[value].label}
-                                IconContainerComponent={IconContainer}
-                            />
-                        </h1>
-                        <p>{hiking.description}</p>
-                        <p>Durée : {hiking.duration}</p>
-                        <p>Distance : {hiking.distance} km</p>
-                        <p>Difficulté : {hiking.difficulty}</p>
-                        <p>Ville : {hiking.city}</p>
-                        <p>Pays : {hiking.country}</p>
-                        <p>Commentaires : {hiking.comment}</p>
-                        <p>Randonnée familiale : {hiking.family ? 'Oui' : 'Non'}</p>
-                        <p>Type de chemin : {hiking.type}</p>
-                    </div> : null
-                }
+            <div className={`mt-4 ${styles.hikingDetails}`}>
+                <div>
+                    <Button onClick={() => history.push('/hikings')}>Retour</Button>
+                    {
+                        hiking ? <div className="mt-4">
+                            <h1><span className="mr-4">{hiking.name}</span>
+                                <Rating
+                                    name="customized-icons"
+                                    value={hiking?.note}
+                                    getLabelText={(value: number) => customIcons[value].label}
+                                    IconContainerComponent={IconContainer}
+                                />
+                            </h1>
+                            <p>{hiking.description}</p>
+                            <p>Durée : {hiking.duration}</p>
+                            <p>Distance : {hiking.distance} km</p>
+                            <p>Difficulté : {hiking.difficulty}</p>
+                            <p>Ville : {hiking.city}</p>
+                            <p>Pays : {hiking.country}</p>
+                            <p>Commentaires : {hiking.comment}</p>
+                            <p>Randonnée familiale : {hiking.family ? 'Oui' : 'Non'}</p>
+                            <p>Type de chemin : {hiking.type}</p>
+                        </div> : null
+                    }
+                </div>
+                <div className="mt-4">
+                    <img src="/images/header2.jpg" width="550" alt="randonnée" title="randonnée" />
+                </div>
             </div>
         </Layout>
     )
